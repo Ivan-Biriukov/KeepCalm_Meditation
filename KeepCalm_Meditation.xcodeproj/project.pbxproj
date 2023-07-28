@@ -9,23 +9,41 @@
 /* Begin PBXBuildFile section */
 		576939242A73E7E2001AF59A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576939232A73E7E2001AF59A /* AppDelegate.swift */; };
 		576939262A73E7E2001AF59A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576939252A73E7E2001AF59A /* SceneDelegate.swift */; };
-		576939282A73E7E2001AF59A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576939272A73E7E2001AF59A /* ViewController.swift */; };
-		5769392B2A73E7E2001AF59A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 576939292A73E7E2001AF59A /* Main.storyboard */; };
+		576939282A73E7E2001AF59A /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576939272A73E7E2001AF59A /* OnboardingViewController.swift */; };
 		5769392E2A73E7E2001AF59A /* KeepCalm_Meditation.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5769392C2A73E7E2001AF59A /* KeepCalm_Meditation.xcdatamodeld */; };
 		576939302A73E7E7001AF59A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5769392F2A73E7E7001AF59A /* Assets.xcassets */; };
 		576939332A73E7E7001AF59A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 576939312A73E7E7001AF59A /* LaunchScreen.storyboard */; };
+		57C27BA92A746286008C2350 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C27BA82A746286008C2350 /* Constants.swift */; };
+		57C27BAD2A746EBD008C2350 /* Alegreya-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57C27BAC2A746EBD008C2350 /* Alegreya-Bold.ttf */; };
+		57C27BAF2A746EDF008C2350 /* Alegreya-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57C27BAE2A746EDF008C2350 /* Alegreya-Medium.ttf */; };
+		57C27BB32A746FE0008C2350 /* AlegreyaSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57C27BB22A746FE0008C2350 /* AlegreyaSans-Medium.ttf */; };
+		57C27BB52A746FF3008C2350 /* AlegreyaSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57C27BB42A746FF3008C2350 /* AlegreyaSans-Regular.ttf */; };
+		57C27BB72A747007008C2350 /* AlegreyaSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57C27BB62A747007008C2350 /* AlegreyaSans-Bold.ttf */; };
+		57C27BB92A74706C008C2350 /* AlegreyaSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57C27BB82A74706C008C2350 /* AlegreyaSans-Light.ttf */; };
+		57C27BBC2A74710D008C2350 /* Karla-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57C27BBB2A74710D008C2350 /* Karla-Regular.ttf */; };
+		57C27BBE2A7471AA008C2350 /* UIFont+ Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C27BBD2A7471AA008C2350 /* UIFont+ Extension.swift */; };
+		57C27BC02A74777F008C2350 /* UIColor+ Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C27BBF2A74777F008C2350 /* UIColor+ Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		576939202A73E7E2001AF59A /* KeepCalm_Meditation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeepCalm_Meditation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		576939232A73E7E2001AF59A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		576939252A73E7E2001AF59A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		576939272A73E7E2001AF59A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		5769392A2A73E7E2001AF59A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		576939272A73E7E2001AF59A /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		5769392D2A73E7E2001AF59A /* KeepCalm_Meditation.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KeepCalm_Meditation.xcdatamodel; sourceTree = "<group>"; };
 		5769392F2A73E7E7001AF59A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		576939322A73E7E7001AF59A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		576939342A73E7E7001AF59A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		57C27BA82A746286008C2350 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		57C27BAC2A746EBD008C2350 /* Alegreya-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Alegreya-Bold.ttf"; sourceTree = "<group>"; };
+		57C27BAE2A746EDF008C2350 /* Alegreya-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Alegreya-Medium.ttf"; sourceTree = "<group>"; };
+		57C27BB22A746FE0008C2350 /* AlegreyaSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AlegreyaSans-Medium.ttf"; sourceTree = "<group>"; };
+		57C27BB42A746FF3008C2350 /* AlegreyaSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AlegreyaSans-Regular.ttf"; sourceTree = "<group>"; };
+		57C27BB62A747007008C2350 /* AlegreyaSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AlegreyaSans-Bold.ttf"; sourceTree = "<group>"; };
+		57C27BB82A74706C008C2350 /* AlegreyaSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AlegreyaSans-Light.ttf"; sourceTree = "<group>"; };
+		57C27BBB2A74710D008C2350 /* Karla-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Karla-Regular.ttf"; sourceTree = "<group>"; };
+		57C27BBD2A7471AA008C2350 /* UIFont+ Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+ Extension.swift"; sourceTree = "<group>"; };
+		57C27BBF2A74777F008C2350 /* UIColor+ Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+ Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +76,113 @@
 		576939222A73E7E2001AF59A /* KeepCalm_Meditation */ = {
 			isa = PBXGroup;
 			children = (
+				57C27BC12A747B4E008C2350 /* Models */,
+				57C27BC22A747B64008C2350 /* Views */,
+				57C27BC32A747B69008C2350 /* ViewModels */,
 				576939232A73E7E2001AF59A /* AppDelegate.swift */,
 				576939252A73E7E2001AF59A /* SceneDelegate.swift */,
-				576939272A73E7E2001AF59A /* ViewController.swift */,
-				576939292A73E7E2001AF59A /* Main.storyboard */,
-				5769392F2A73E7E7001AF59A /* Assets.xcassets */,
-				576939312A73E7E7001AF59A /* LaunchScreen.storyboard */,
 				576939342A73E7E7001AF59A /* Info.plist */,
-				5769392C2A73E7E2001AF59A /* KeepCalm_Meditation.xcdatamodeld */,
+				57C27BA72A74622A008C2350 /* Supporting Files */,
+				57C27BAB2A746E55008C2350 /* Extensions */,
 			);
 			path = KeepCalm_Meditation;
+			sourceTree = "<group>";
+		};
+		57C27BA72A74622A008C2350 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				57C27BAA2A746E49008C2350 /* Fonts */,
+				5769392F2A73E7E7001AF59A /* Assets.xcassets */,
+				57C27BA82A746286008C2350 /* Constants.swift */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		57C27BAA2A746E49008C2350 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				57C27BBA2A7470F0008C2350 /* Karla */,
+				57C27BB02A746F6B008C2350 /* Alegreya */,
+				57C27BB12A746FC6008C2350 /* Alegreya_Sans */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		57C27BAB2A746E55008C2350 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				57C27BBD2A7471AA008C2350 /* UIFont+ Extension.swift */,
+				57C27BBF2A74777F008C2350 /* UIColor+ Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		57C27BB02A746F6B008C2350 /* Alegreya */ = {
+			isa = PBXGroup;
+			children = (
+				57C27BAE2A746EDF008C2350 /* Alegreya-Medium.ttf */,
+				57C27BAC2A746EBD008C2350 /* Alegreya-Bold.ttf */,
+			);
+			path = Alegreya;
+			sourceTree = "<group>";
+		};
+		57C27BB12A746FC6008C2350 /* Alegreya_Sans */ = {
+			isa = PBXGroup;
+			children = (
+				57C27BB82A74706C008C2350 /* AlegreyaSans-Light.ttf */,
+				57C27BB62A747007008C2350 /* AlegreyaSans-Bold.ttf */,
+				57C27BB42A746FF3008C2350 /* AlegreyaSans-Regular.ttf */,
+				57C27BB22A746FE0008C2350 /* AlegreyaSans-Medium.ttf */,
+			);
+			path = Alegreya_Sans;
+			sourceTree = "<group>";
+		};
+		57C27BBA2A7470F0008C2350 /* Karla */ = {
+			isa = PBXGroup;
+			children = (
+				57C27BBB2A74710D008C2350 /* Karla-Regular.ttf */,
+			);
+			path = Karla;
+			sourceTree = "<group>";
+		};
+		57C27BC12A747B4E008C2350 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				57C27BC52A747B9D008C2350 /* CoreData */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		57C27BC22A747B64008C2350 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				57C27BC42A747B81008C2350 /* ViewControllers */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		57C27BC32A747B69008C2350 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		57C27BC42A747B81008C2350 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				576939272A73E7E2001AF59A /* OnboardingViewController.swift */,
+				576939312A73E7E7001AF59A /* LaunchScreen.storyboard */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		57C27BC52A747B9D008C2350 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				5769392C2A73E7E2001AF59A /* KeepCalm_Meditation.xcdatamodeld */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -129,8 +244,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				576939332A73E7E7001AF59A /* LaunchScreen.storyboard in Resources */,
+				57C27BB72A747007008C2350 /* AlegreyaSans-Bold.ttf in Resources */,
+				57C27BB32A746FE0008C2350 /* AlegreyaSans-Medium.ttf in Resources */,
+				57C27BAD2A746EBD008C2350 /* Alegreya-Bold.ttf in Resources */,
 				576939302A73E7E7001AF59A /* Assets.xcassets in Resources */,
-				5769392B2A73E7E2001AF59A /* Main.storyboard in Resources */,
+				57C27BBC2A74710D008C2350 /* Karla-Regular.ttf in Resources */,
+				57C27BB52A746FF3008C2350 /* AlegreyaSans-Regular.ttf in Resources */,
+				57C27BB92A74706C008C2350 /* AlegreyaSans-Light.ttf in Resources */,
+				57C27BAF2A746EDF008C2350 /* Alegreya-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,8 +262,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				576939282A73E7E2001AF59A /* ViewController.swift in Sources */,
+				57C27BA92A746286008C2350 /* Constants.swift in Sources */,
+				576939282A73E7E2001AF59A /* OnboardingViewController.swift in Sources */,
 				576939242A73E7E2001AF59A /* AppDelegate.swift in Sources */,
+				57C27BC02A74777F008C2350 /* UIColor+ Extension.swift in Sources */,
+				57C27BBE2A7471AA008C2350 /* UIFont+ Extension.swift in Sources */,
 				5769392E2A73E7E2001AF59A /* KeepCalm_Meditation.xcdatamodeld in Sources */,
 				576939262A73E7E2001AF59A /* SceneDelegate.swift in Sources */,
 			);
@@ -151,14 +275,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		576939292A73E7E2001AF59A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5769392A2A73E7E2001AF59A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		576939312A73E7E7001AF59A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -220,7 +336,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -274,7 +390,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -296,9 +412,10 @@
 				INFOPLIST_FILE = KeepCalm_Meditation/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -306,9 +423,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "co.IvanBiriukov.KeepCalm-Meditation";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -324,9 +444,10 @@
 				INFOPLIST_FILE = KeepCalm_Meditation/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -334,9 +455,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "co.IvanBiriukov.KeepCalm-Meditation";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
