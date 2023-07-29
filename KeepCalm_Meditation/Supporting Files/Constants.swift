@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 struct K {
     
@@ -44,6 +44,10 @@ struct K {
         static let thirdImage : String = "Positive Notes"
         static let fourthImage : String = "Trigger Plan"
         static let fifthImage : String = "Goal Trainer"
+    }
+    
+    struct DeviceSizes {
+        static let currentDeviceHeight = UIScreen.main.bounds.height
     }
     
 }

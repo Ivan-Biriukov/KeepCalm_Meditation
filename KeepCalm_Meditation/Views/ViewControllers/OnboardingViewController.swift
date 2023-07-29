@@ -122,7 +122,7 @@ class OnboardingViewController: UIViewController {
     // MARK: - Buttons Methods
     
     @objc func loginPressed() {
-        
+        self.navigationController?.pushViewController(SignInViewController(), animated: true)
     }
     
     @objc func signUpTaped(_ sender: UIButton) {

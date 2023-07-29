@@ -22,6 +22,7 @@ class ReusableButton: UIButton {
     }
     
     private func setup() {
+        translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .buttonBackground()
         setTitleColor(.white, for: .normal)
         titleLabel?.font = .alegreyaSansMedium25()
