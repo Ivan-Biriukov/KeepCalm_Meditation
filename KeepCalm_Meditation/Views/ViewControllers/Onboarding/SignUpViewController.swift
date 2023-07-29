@@ -78,6 +78,7 @@ class SignUpViewController: UIViewController {
         setupConstraints()
         hideKeyboardWhenTappedAround()
         setupTextFields()
+        setupButtons()
     }
     
     // MARK: - Buttons Methods
@@ -90,12 +91,20 @@ class SignUpViewController: UIViewController {
         }
     }
     
+    @objc func signInPressed(_ sender: UIButton) {
+        self.navigationController?.pushViewController(MainViewController(), animated: true)
+    }
+    
     // MARK: - SetupUI
 
     private func setupTextFields() {
         nameField.delegate = self
         emailField.delegate = self
         passwordField.delegate = self
+    }
+    
+    private func setupButtons() {
+        signupButton.addTarget(self, action: #selector(signInPressed(_:)), for: .touchUpInside)
     }
     
     private func addSubviews() {
