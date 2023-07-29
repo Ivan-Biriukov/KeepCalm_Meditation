@@ -8,7 +8,8 @@ class ReusableTextField: UITextField {
         let btn = UIButton()
         btn.setImage(UIImage(systemName: "eye.circle.fill"), for: .normal)
         btn.tintColor = .grayText()
-        btn.frame.size = CGSize(width: 25, height: 25)
+        btn.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        btn.widthAnchor.constraint(equalToConstant: 30).isActive = true
         btn.addTarget(self, action: #selector(showPasswordPressed(_:)), for: .touchUpInside)
         return btn
     }()
@@ -71,7 +72,7 @@ class ReusableTextField: UITextField {
     @objc func showPasswordPressed(_ sender: UIButton) {
         passwordHidden = !passwordHidden
         isSecureTextEntry = !isSecureTextEntry
-        
+    
         passwordHidden ? showPasswordButton.setImage(UIImage(systemName: "eye.circle.fill"), for: .normal) : showPasswordButton.setImage(UIImage(systemName: "eye.slash.circle.fill"), for: .normal)
     }
 }

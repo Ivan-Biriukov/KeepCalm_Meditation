@@ -19,6 +19,7 @@
 		5799637F2A755BB200F10D30 /* LoginTopStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5799637E2A755BB200F10D30 /* LoginTopStack.swift */; };
 		579963822A75A5ED00F10D30 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 579963812A75A5ED00F10D30 /* IQKeyboardManagerSwift */; };
 		579963842A75A82B00F10D30 /* UIViewController+ Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579963832A75A82B00F10D30 /* UIViewController+ Extension.swift */; };
+		579963862A75AA5700F10D30 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579963852A75AA5700F10D30 /* SignUpViewController.swift */; };
 		57C27BA92A746286008C2350 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C27BA82A746286008C2350 /* Constants.swift */; };
 		57C27BAD2A746EBD008C2350 /* Alegreya-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57C27BAC2A746EBD008C2350 /* Alegreya-Bold.ttf */; };
 		57C27BAF2A746EDF008C2350 /* Alegreya-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57C27BAE2A746EDF008C2350 /* Alegreya-Medium.ttf */; };
@@ -46,6 +47,7 @@
 		5799637B2A75516700F10D30 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		5799637E2A755BB200F10D30 /* LoginTopStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTopStack.swift; sourceTree = "<group>"; };
 		579963832A75A82B00F10D30 /* UIViewController+ Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ Extension.swift"; sourceTree = "<group>"; };
+		579963852A75AA5700F10D30 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		57C27BA82A746286008C2350 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		57C27BAC2A746EBD008C2350 /* Alegreya-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Alegreya-Bold.ttf"; sourceTree = "<group>"; };
 		57C27BAE2A746EDF008C2350 /* Alegreya-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Alegreya-Medium.ttf"; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				576939312A73E7E7001AF59A /* LaunchScreen.storyboard */,
 				576939272A73E7E2001AF59A /* OnboardingViewController.swift */,
 				5799637B2A75516700F10D30 /* SignInViewController.swift */,
+				579963852A75AA5700F10D30 /* SignUpViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 				57C27BC02A74777F008C2350 /* UIColor+ Extension.swift in Sources */,
 				57C27BBE2A7471AA008C2350 /* UIFont+ Extension.swift in Sources */,
 				5769392E2A73E7E2001AF59A /* KeepCalm_Meditation.xcdatamodeld in Sources */,
+				579963862A75AA5700F10D30 /* SignUpViewController.swift in Sources */,
 				5799637A2A75495700F10D30 /* UITextField+ Extension.swift in Sources */,
 				5799637F2A755BB200F10D30 /* LoginTopStack.swift in Sources */,
 				57C27BC92A74872F008C2350 /* ReusableButton.swift in Sources */,

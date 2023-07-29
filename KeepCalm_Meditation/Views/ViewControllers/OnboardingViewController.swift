@@ -1,9 +1,7 @@
 import UIKit
 
 class OnboardingViewController: UIViewController {
-    
-    private let currentDeviceHeight = UIScreen.main.bounds.height
-    
+        
     // MARK: - UI Elements
     
     private let backgroundImage : UIImageView = {
@@ -129,9 +127,9 @@ class OnboardingViewController: UIViewController {
         sender.alpha = 0.5
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             self.signUpButton.alpha = 1
+            self.navigationController?.pushViewController(SignUpViewController(), animated: true)
         }
     }
-    
     
     // MARK: - Setup UI
     
@@ -160,7 +158,7 @@ class OnboardingViewController: UIViewController {
             backgroundImage.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             backgroundImage.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
-            currentDeviceHeight <= 568 ? mainStack.topAnchor.constraint(equalTo: view.topAnchor, constant: 50) : ((currentDeviceHeight <= 667) ? mainStack.topAnchor.constraint(equalTo: view.topAnchor, constant: 150) : mainStack.topAnchor.constraint(equalTo: view.topAnchor, constant: 250)),
+            K.DeviceSizes.currentDeviceHeight <= 568 ? mainStack.topAnchor.constraint(equalTo: view.topAnchor, constant: 50) : (( K.DeviceSizes.currentDeviceHeight <= 667) ? mainStack.topAnchor.constraint(equalTo: view.topAnchor, constant: 150) : mainStack.topAnchor.constraint(equalTo: view.topAnchor, constant: 250)),
             
             mainStack.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             mainStack.trailingAnchor.constraint(equalTo: view.trailingAnchor),
