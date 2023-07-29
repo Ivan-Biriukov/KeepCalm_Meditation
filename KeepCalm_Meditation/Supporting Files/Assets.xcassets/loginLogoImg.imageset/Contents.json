@@ -1,23 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "loginLogoImg@1x.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "loginLogoImg@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "loginLogoImg@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "loginLogoImg.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {
     "author" : "xcode",
     "version" : 1
+  },
+  "properties" : {
+    "preserves-vector-representation" : true
   }
 }
