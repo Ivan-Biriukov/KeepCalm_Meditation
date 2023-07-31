@@ -21,6 +21,10 @@
 		579963842A75A82B00F10D30 /* UIViewController+ Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579963832A75A82B00F10D30 /* UIViewController+ Extension.swift */; };
 		579963862A75AA5700F10D30 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579963852A75AA5700F10D30 /* SignUpViewController.swift */; };
 		579963892A75CFCA00F10D30 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579963882A75CFCA00F10D30 /* MainViewController.swift */; };
+		579B274A2A77E8D100E277E1 /* SoundsRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579B27492A77E8D100E277E1 /* SoundsRootViewController.swift */; };
+		579B274E2A77F97000E277E1 /* SongsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579B274D2A77F97000E277E1 /* SongsTableViewCell.swift */; };
+		579B27502A7800D600E277E1 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579B274F2A7800D600E277E1 /* PlayerViewController.swift */; };
+		579B27522A782E7000E277E1 /* PlayerButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579B27512A782E7000E277E1 /* PlayerButtons.swift */; };
 		57BA03992A769EC9004C7FC7 /* MoodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BA03982A769EC9004C7FC7 /* MoodCollectionViewCell.swift */; };
 		57BA039B2A76D85E004C7FC7 /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BA039A2A76D85E004C7FC7 /* PostCollectionViewCell.swift */; };
 		57BA039D2A76E314004C7FC7 /* UIButton+ Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BA039C2A76E314004C7FC7 /* UIButton+ Extension.swift */; };
@@ -54,6 +58,10 @@
 		579963832A75A82B00F10D30 /* UIViewController+ Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ Extension.swift"; sourceTree = "<group>"; };
 		579963852A75AA5700F10D30 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		579963882A75CFCA00F10D30 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		579B27492A77E8D100E277E1 /* SoundsRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundsRootViewController.swift; sourceTree = "<group>"; };
+		579B274D2A77F97000E277E1 /* SongsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsTableViewCell.swift; sourceTree = "<group>"; };
+		579B274F2A7800D600E277E1 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
+		579B27512A782E7000E277E1 /* PlayerButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerButtons.swift; sourceTree = "<group>"; };
 		57BA03982A769EC9004C7FC7 /* MoodCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodCollectionViewCell.swift; sourceTree = "<group>"; };
 		57BA039A2A76D85E004C7FC7 /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCell.swift; sourceTree = "<group>"; };
 		57BA039C2A76E314004C7FC7 /* UIButton+ Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+ Extension.swift"; sourceTree = "<group>"; };
@@ -140,11 +148,28 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
-		57BA03972A769EA9004C7FC7 /* Cells */ = {
+		579B274B2A77F94800E277E1 /* CollectionsCells */ = {
 			isa = PBXGroup;
 			children = (
 				57BA03982A769EC9004C7FC7 /* MoodCollectionViewCell.swift */,
 				57BA039A2A76D85E004C7FC7 /* PostCollectionViewCell.swift */,
+			);
+			path = CollectionsCells;
+			sourceTree = "<group>";
+		};
+		579B274C2A77F95800E277E1 /* TableCells */ = {
+			isa = PBXGroup;
+			children = (
+				579B274D2A77F97000E277E1 /* SongsTableViewCell.swift */,
+			);
+			path = TableCells;
+			sourceTree = "<group>";
+		};
+		57BA03972A769EA9004C7FC7 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				579B274C2A77F95800E277E1 /* TableCells */,
+				579B274B2A77F94800E277E1 /* CollectionsCells */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -251,6 +276,8 @@
 				576939312A73E7E7001AF59A /* LaunchScreen.storyboard */,
 				579963872A75CFAB00F10D30 /* Onboarding */,
 				579963882A75CFCA00F10D30 /* MainViewController.swift */,
+				579B27492A77E8D100E277E1 /* SoundsRootViewController.swift */,
+				579B274F2A7800D600E277E1 /* PlayerViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -267,6 +294,7 @@
 			isa = PBXGroup;
 			children = (
 				57C27BC82A74872F008C2350 /* ReusableButton.swift */,
+				579B27512A782E7000E277E1 /* PlayerButtons.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -354,6 +382,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				579B274A2A77E8D100E277E1 /* SoundsRootViewController.swift in Sources */,
 				5799637C2A75516700F10D30 /* SignInViewController.swift in Sources */,
 				579963842A75A82B00F10D30 /* UIViewController+ Extension.swift in Sources */,
 				57BA03A02A770E15004C7FC7 /* CustomTabBar.swift in Sources */,
@@ -362,6 +391,8 @@
 				576939282A73E7E2001AF59A /* OnboardingViewController.swift in Sources */,
 				576939242A73E7E2001AF59A /* AppDelegate.swift in Sources */,
 				57C27BC02A74777F008C2350 /* UIColor+ Extension.swift in Sources */,
+				579B27502A7800D600E277E1 /* PlayerViewController.swift in Sources */,
+				579B274E2A77F97000E277E1 /* SongsTableViewCell.swift in Sources */,
 				57C27BBE2A7471AA008C2350 /* UIFont+ Extension.swift in Sources */,
 				5769392E2A73E7E2001AF59A /* KeepCalm_Meditation.xcdatamodeld in Sources */,
 				579963862A75AA5700F10D30 /* SignUpViewController.swift in Sources */,
@@ -372,6 +403,7 @@
 				57C27BC92A74872F008C2350 /* ReusableButton.swift in Sources */,
 				57BA03992A769EC9004C7FC7 /* MoodCollectionViewCell.swift in Sources */,
 				579963782A7547AD00F10D30 /* ReusableTextField.swift in Sources */,
+				579B27522A782E7000E277E1 /* PlayerButtons.swift in Sources */,
 				576939262A73E7E2001AF59A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
