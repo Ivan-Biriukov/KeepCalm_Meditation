@@ -1,6 +1,6 @@
 import UIKit
 
-class PlayerViewController: UIViewController {
+class PlayerViewController: UIViewController, PlayerButtonsDelegate {
     
     // MARK: - UI Elements
     
@@ -53,6 +53,32 @@ class PlayerViewController: UIViewController {
         return stack
     }()
     
+    private let songProgress : UIProgressView = {
+        let pg = UIProgressView()
+        pg.progress = 0.1
+        pg.progressViewStyle = .bar
+        pg.trackTintColor = .lightGray
+        pg.progressTintColor = .darkGray
+        pg.heightAnchor.constraint(equalToConstant: 5).isActive = true
+        pg.translatesAutoresizingMaskIntoConstraints = false
+        return pg
+    }()
+    
+    private let actionsButtonsStack : UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .horizontal
+        stack.distribution = .equalSpacing
+        stack.alignment = .center
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        return stack
+    }()
+    
+    private let shuffleButton = PlayerButtons(style: .shuffle)
+    private let backwardButton = PlayerButtons(style: .back)
+    private let playPauseButton = PlayerButtons(style: .play_pause)
+    private let forwardButton = PlayerButtons(style: .forward)
+    private let reverseButton = PlayerButtons(style: .reverse)
+    
     // MARK: - LifeCycle Methods
 
     override func viewDidLoad() {
@@ -60,12 +86,24 @@ class PlayerViewController: UIViewController {
         view.backgroundColor = .mainBackgroundColor()
         addSubviews()
         setupUI()
+        addButtonsTarget()
     }
     
     
     // MARK: - Buttons Methods
     
+    @objc func playerButtonPressed(_ sender: UIButton) {
+    }
+    
+    
     // MARK: - Configure UI
+    
+    private func addButtonsTarget() {
+        let buttonArray = [shuffleButton, backwardButton, playPauseButton, forwardButton, reverseButton]
+        for button in buttonArray {
+            button.addTarget(self, action: #selector(playerButtonPressed(_:)), for: .touchUpInside)
+        }
+    }
     
     private func addSubviews() {
         view.addSubview(contentStack)
@@ -73,6 +111,13 @@ class PlayerViewController: UIViewController {
         contentStack.addArrangedSubview(titleStack)
         titleStack.addArrangedSubview(songNameLabel)
         titleStack.addArrangedSubview(songAuthorLabel)
+        contentStack.addArrangedSubview(songProgress)
+        contentStack.addArrangedSubview(actionsButtonsStack)
+        actionsButtonsStack.addArrangedSubview(shuffleButton)
+        actionsButtonsStack.addArrangedSubview(backwardButton)
+        actionsButtonsStack.addArrangedSubview(playPauseButton)
+        actionsButtonsStack.addArrangedSubview(forwardButton)
+        actionsButtonsStack.addArrangedSubview(reverseButton)
     }
     
     private func setupUI() {
@@ -80,9 +125,13 @@ class PlayerViewController: UIViewController {
             contentStack.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
             contentStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
             contentStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
-            contentStack.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20),
-        
+            K.DeviceSizes.currentDeviceHeight <= 568 ?  contentStack.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30) : ((K.DeviceSizes.currentDeviceHeight <= 667) ?  contentStack.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40) :  contentStack.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -60)),
+                        
+            songProgress.leadingAnchor.constraint(equalTo: contentStack.leadingAnchor, constant: 20),
+            songProgress.trailingAnchor.constraint(equalTo: contentStack.trailingAnchor, constant: -20),
+            
+            actionsButtonsStack.leadingAnchor.constraint(equalTo: contentStack.leadingAnchor),
+            actionsButtonsStack.trailingAnchor.constraint(equalTo: contentStack.trailingAnchor),
         ])
     }
-    
 }

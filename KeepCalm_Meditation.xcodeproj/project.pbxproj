@@ -24,6 +24,7 @@
 		579B274A2A77E8D100E277E1 /* SoundsRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579B27492A77E8D100E277E1 /* SoundsRootViewController.swift */; };
 		579B274E2A77F97000E277E1 /* SongsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579B274D2A77F97000E277E1 /* SongsTableViewCell.swift */; };
 		579B27502A7800D600E277E1 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579B274F2A7800D600E277E1 /* PlayerViewController.swift */; };
+		579B27522A782E7000E277E1 /* PlayerButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579B27512A782E7000E277E1 /* PlayerButtons.swift */; };
 		57BA03992A769EC9004C7FC7 /* MoodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BA03982A769EC9004C7FC7 /* MoodCollectionViewCell.swift */; };
 		57BA039B2A76D85E004C7FC7 /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BA039A2A76D85E004C7FC7 /* PostCollectionViewCell.swift */; };
 		57BA039D2A76E314004C7FC7 /* UIButton+ Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BA039C2A76E314004C7FC7 /* UIButton+ Extension.swift */; };
@@ -60,6 +61,7 @@
 		579B27492A77E8D100E277E1 /* SoundsRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundsRootViewController.swift; sourceTree = "<group>"; };
 		579B274D2A77F97000E277E1 /* SongsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsTableViewCell.swift; sourceTree = "<group>"; };
 		579B274F2A7800D600E277E1 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
+		579B27512A782E7000E277E1 /* PlayerButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerButtons.swift; sourceTree = "<group>"; };
 		57BA03982A769EC9004C7FC7 /* MoodCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodCollectionViewCell.swift; sourceTree = "<group>"; };
 		57BA039A2A76D85E004C7FC7 /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCell.swift; sourceTree = "<group>"; };
 		57BA039C2A76E314004C7FC7 /* UIButton+ Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+ Extension.swift"; sourceTree = "<group>"; };
@@ -292,6 +294,7 @@
 			isa = PBXGroup;
 			children = (
 				57C27BC82A74872F008C2350 /* ReusableButton.swift */,
+				579B27512A782E7000E277E1 /* PlayerButtons.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 				57C27BC92A74872F008C2350 /* ReusableButton.swift in Sources */,
 				57BA03992A769EC9004C7FC7 /* MoodCollectionViewCell.swift in Sources */,
 				579963782A7547AD00F10D30 /* ReusableTextField.swift in Sources */,
+				579B27522A782E7000E277E1 /* PlayerButtons.swift in Sources */,
 				576939262A73E7E2001AF59A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
