@@ -1,6 +1,6 @@
 import UIKit
 
-class SignUpViewController: UIViewController {
+class SignInViewController: UIViewController {
     
     // MARK: - UI Elements
     
@@ -12,44 +12,52 @@ class SignUpViewController: UIViewController {
         return bg
     }()
     
-    private let topStack = LoginTopStack(style: .signUp)
-    
-    private let nameField = ReusableTextField(style: .userName)
-    private let emailField = ReusableTextField(style: .email)
-    private let passwordField = ReusableTextField(style: .password)
+    private let topStack = LoginTopStack(style: .signIn)
+    private let emailTextField = ReusableTextField(style: .email)
+    private let passwordTextField = ReusableTextField(style: .password)
     
     private let fieldsStack : UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
         stack.distribution = .fill
         stack.alignment = .center
-        stack.spacing = 2
+        stack.spacing = 5
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
     
-    private lazy var signupButton = ReusableButton(style: .signUp)
-    
+    private lazy var recoverPasswordButton : UIButton = {
+        let btn = UIButton()
+        btn.setTitle("Forgot Password?", for: .normal)
+        btn.setTitleColor(.grayText(), for: .normal)
+        btn.titleLabel?.font = .alegreyaSansRegular14()
+        btn.addTarget(self, action: #selector(recoverButtonPressed(_:)), for: .touchUpInside)
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        return btn
+    }()
+
+    private lazy var loginButton = ReusableButton(style: .login)
+
     private let bottomLabel : UILabel = {
         let lb = UILabel()
         lb.font = .alegreyaSansRegular20()
         lb.textColor = .white
         lb.textAlignment = .left
-        lb.text = "Already have an account?"
+        lb.text = "Don’t have an account?"
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
     }()
 
-    private lazy var signInButton : UIButton = {
+    private lazy var signUpButton : UIButton = {
         let btn = UIButton()
-        btn.setTitle("Sign In", for: .normal)
+        btn.setTitle("Sign Up", for: .normal)
         btn.setTitleColor(.white, for: .normal)
         btn.titleLabel?.font = .alegreyaSansBold20()
-        btn.addTarget(self, action: #selector(signInTaped(_:)), for: .touchUpInside)
+        btn.addTarget(self, action: #selector(signUpTaped(_:)), for: .touchUpInside)
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
     }()
-    
+
     private let lastLineStack : UIStackView = {
         let stack = UIStackView()
         stack.axis = .horizontal
@@ -58,7 +66,7 @@ class SignUpViewController: UIViewController {
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
-    
+
     private let bottomButtonsStack : UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
@@ -69,47 +77,61 @@ class SignUpViewController: UIViewController {
         return stack
     }()
     
-    
     // MARK: - LifeCycle Methods
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         addSubviews()
         setupConstraints()
+        setupButtons()
         hideKeyboardWhenTappedAround()
-        setupTextFields()
+        configureTextFields()
     }
     
     // MARK: - Buttons Methods
-
-    @objc func signInTaped(_ sender: UIButton) {
+    
+    @objc func recoverButtonPressed(_ sender: UIButton) {
         sender.alpha = 0.5
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2){
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             sender.alpha = 1
-            self.navigationController?.pushViewController(SignInViewController(), animated: true)
+        }
+    }
+    
+    @objc func loginPressed() {
+        self.navigationController?.pushViewController(CustomTabBar.createTabBar(), animated: true)
+    }
+    
+    @objc func signUpTaped(_ sender: UIButton) {
+        sender.alpha = 0.5
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            sender.alpha = 1
+            self.navigationController?.pushViewController(SignUpViewController(), animated: true)
         }
     }
     
     // MARK: - SetupUI
-
-    private func setupTextFields() {
-        nameField.delegate = self
-        emailField.delegate = self
-        passwordField.delegate = self
+    
+    private func setupButtons() {
+        loginButton.addTarget(self, action: #selector(loginPressed), for: .touchUpInside)
+    }
+    
+    private func configureTextFields() {
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
     }
     
     private func addSubviews() {
         view.addSubview(backgroundImage)
         view.addSubview(topStack)
         view.addSubview(fieldsStack)
-        fieldsStack.addArrangedSubview(nameField)
-        fieldsStack.addArrangedSubview(emailField)
-        fieldsStack.addArrangedSubview(passwordField)
+        fieldsStack.addArrangedSubview(emailTextField)
+        fieldsStack.addArrangedSubview(passwordTextField)
+        view.addSubview(recoverPasswordButton)
         view.addSubview(bottomButtonsStack)
-        bottomButtonsStack.addArrangedSubview(signupButton)
+        bottomButtonsStack.addArrangedSubview(loginButton)
         bottomButtonsStack.addArrangedSubview(lastLineStack)
         lastLineStack.addArrangedSubview(bottomLabel)
-        lastLineStack.addArrangedSubview(signInButton)
+        lastLineStack.addArrangedSubview(signUpButton)
     }
     
     private func setupConstraints() {
@@ -123,11 +145,14 @@ class SignUpViewController: UIViewController {
             topStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 27),
             topStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -27),
             
-            K.DeviceSizes.currentDeviceHeight <= 568 ?  fieldsStack.topAnchor.constraint(equalTo: topStack.bottomAnchor, constant: 5) : ((K.DeviceSizes.currentDeviceHeight <= 667) ?  fieldsStack.topAnchor.constraint(equalTo: topStack.bottomAnchor, constant: 15) :  fieldsStack.topAnchor.constraint(equalTo: topStack.bottomAnchor, constant: 25)),
+            fieldsStack.topAnchor.constraint(equalTo: topStack.bottomAnchor, constant: 20),
             fieldsStack.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             fieldsStack.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-        
-            K.DeviceSizes.currentDeviceHeight <= 568 ? bottomButtonsStack.topAnchor.constraint(equalTo: fieldsStack.bottomAnchor, constant: 15) : ((K.DeviceSizes.currentDeviceHeight <= 667) ? bottomButtonsStack.topAnchor.constraint(equalTo: fieldsStack.bottomAnchor, constant: 35) : bottomButtonsStack.topAnchor.constraint(equalTo: fieldsStack.bottomAnchor, constant: 45)),
+            
+            recoverPasswordButton.topAnchor.constraint(equalTo: fieldsStack.bottomAnchor, constant: 10),
+            recoverPasswordButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
+            
+            K.DeviceSizes.currentDeviceHeight <= 568 ? bottomButtonsStack.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -25) : ((K.DeviceSizes.currentDeviceHeight <= 667) ? bottomButtonsStack.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -75) : bottomButtonsStack.topAnchor.constraint(equalTo: recoverPasswordButton.bottomAnchor, constant: 30)),
             bottomButtonsStack.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             bottomButtonsStack.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         ])
@@ -136,7 +161,7 @@ class SignUpViewController: UIViewController {
 
 // MARK: - TextField Delegate
 
-extension SignUpViewController : UITextFieldDelegate {
+extension SignInViewController : UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()

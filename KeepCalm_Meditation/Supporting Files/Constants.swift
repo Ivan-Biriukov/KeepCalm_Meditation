@@ -13,6 +13,7 @@ struct K {
     
     struct NavigationControllerElements {
         static let menuButton : String = "accountMenuButtonImg"
+        static let homeButton : String = "Home"
         static let soundsButton : String = "tabbarSoundImage"
         static let profileButton : String = "tabbarProfileImage"
     }

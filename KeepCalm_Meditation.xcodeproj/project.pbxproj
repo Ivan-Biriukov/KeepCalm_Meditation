@@ -20,6 +20,11 @@
 		579963822A75A5ED00F10D30 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 579963812A75A5ED00F10D30 /* IQKeyboardManagerSwift */; };
 		579963842A75A82B00F10D30 /* UIViewController+ Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579963832A75A82B00F10D30 /* UIViewController+ Extension.swift */; };
 		579963862A75AA5700F10D30 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579963852A75AA5700F10D30 /* SignUpViewController.swift */; };
+		579963892A75CFCA00F10D30 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579963882A75CFCA00F10D30 /* MainViewController.swift */; };
+		57BA03992A769EC9004C7FC7 /* MoodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BA03982A769EC9004C7FC7 /* MoodCollectionViewCell.swift */; };
+		57BA039B2A76D85E004C7FC7 /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BA039A2A76D85E004C7FC7 /* PostCollectionViewCell.swift */; };
+		57BA039D2A76E314004C7FC7 /* UIButton+ Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BA039C2A76E314004C7FC7 /* UIButton+ Extension.swift */; };
+		57BA03A02A770E15004C7FC7 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BA039F2A770E15004C7FC7 /* CustomTabBar.swift */; };
 		57C27BA92A746286008C2350 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C27BA82A746286008C2350 /* Constants.swift */; };
 		57C27BAD2A746EBD008C2350 /* Alegreya-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57C27BAC2A746EBD008C2350 /* Alegreya-Bold.ttf */; };
 		57C27BAF2A746EDF008C2350 /* Alegreya-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57C27BAE2A746EDF008C2350 /* Alegreya-Medium.ttf */; };
@@ -48,6 +53,11 @@
 		5799637E2A755BB200F10D30 /* LoginTopStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTopStack.swift; sourceTree = "<group>"; };
 		579963832A75A82B00F10D30 /* UIViewController+ Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ Extension.swift"; sourceTree = "<group>"; };
 		579963852A75AA5700F10D30 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		579963882A75CFCA00F10D30 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		57BA03982A769EC9004C7FC7 /* MoodCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodCollectionViewCell.swift; sourceTree = "<group>"; };
+		57BA039A2A76D85E004C7FC7 /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCell.swift; sourceTree = "<group>"; };
+		57BA039C2A76E314004C7FC7 /* UIButton+ Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+ Extension.swift"; sourceTree = "<group>"; };
+		57BA039F2A770E15004C7FC7 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		57C27BA82A746286008C2350 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		57C27BAC2A746EBD008C2350 /* Alegreya-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Alegreya-Bold.ttf"; sourceTree = "<group>"; };
 		57C27BAE2A746EDF008C2350 /* Alegreya-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Alegreya-Medium.ttf"; sourceTree = "<group>"; };
@@ -120,6 +130,33 @@
 			path = ReusableStacks;
 			sourceTree = "<group>";
 		};
+		579963872A75CFAB00F10D30 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				576939272A73E7E2001AF59A /* OnboardingViewController.swift */,
+				5799637B2A75516700F10D30 /* SignInViewController.swift */,
+				579963852A75AA5700F10D30 /* SignUpViewController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		57BA03972A769EA9004C7FC7 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				57BA03982A769EC9004C7FC7 /* MoodCollectionViewCell.swift */,
+				57BA039A2A76D85E004C7FC7 /* PostCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		57BA039E2A770DF7004C7FC7 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				57BA039F2A770E15004C7FC7 /* CustomTabBar.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
 		57C27BA72A74622A008C2350 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -147,6 +184,7 @@
 				57C27BBF2A74777F008C2350 /* UIColor+ Extension.swift */,
 				579963792A75495700F10D30 /* UITextField+ Extension.swift */,
 				579963832A75A82B00F10D30 /* UIViewController+ Extension.swift */,
+				57BA039C2A76E314004C7FC7 /* UIButton+ Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -190,6 +228,8 @@
 		57C27BC22A747B64008C2350 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				57BA039E2A770DF7004C7FC7 /* TabBar */,
+				57BA03972A769EA9004C7FC7 /* Cells */,
 				5799637D2A755B8000F10D30 /* ReusableStacks */,
 				579963762A75477C00F10D30 /* TextFields */,
 				57C27BC72A748713008C2350 /* Buttons */,
@@ -209,9 +249,8 @@
 			isa = PBXGroup;
 			children = (
 				576939312A73E7E7001AF59A /* LaunchScreen.storyboard */,
-				576939272A73E7E2001AF59A /* OnboardingViewController.swift */,
-				5799637B2A75516700F10D30 /* SignInViewController.swift */,
-				579963852A75AA5700F10D30 /* SignUpViewController.swift */,
+				579963872A75CFAB00F10D30 /* Onboarding */,
+				579963882A75CFCA00F10D30 /* MainViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -317,6 +356,8 @@
 			files = (
 				5799637C2A75516700F10D30 /* SignInViewController.swift in Sources */,
 				579963842A75A82B00F10D30 /* UIViewController+ Extension.swift in Sources */,
+				57BA03A02A770E15004C7FC7 /* CustomTabBar.swift in Sources */,
+				57BA039D2A76E314004C7FC7 /* UIButton+ Extension.swift in Sources */,
 				57C27BA92A746286008C2350 /* Constants.swift in Sources */,
 				576939282A73E7E2001AF59A /* OnboardingViewController.swift in Sources */,
 				576939242A73E7E2001AF59A /* AppDelegate.swift in Sources */,
@@ -324,9 +365,12 @@
 				57C27BBE2A7471AA008C2350 /* UIFont+ Extension.swift in Sources */,
 				5769392E2A73E7E2001AF59A /* KeepCalm_Meditation.xcdatamodeld in Sources */,
 				579963862A75AA5700F10D30 /* SignUpViewController.swift in Sources */,
+				579963892A75CFCA00F10D30 /* MainViewController.swift in Sources */,
 				5799637A2A75495700F10D30 /* UITextField+ Extension.swift in Sources */,
 				5799637F2A755BB200F10D30 /* LoginTopStack.swift in Sources */,
+				57BA039B2A76D85E004C7FC7 /* PostCollectionViewCell.swift in Sources */,
 				57C27BC92A74872F008C2350 /* ReusableButton.swift in Sources */,
+				57BA03992A769EC9004C7FC7 /* MoodCollectionViewCell.swift in Sources */,
 				579963782A7547AD00F10D30 /* ReusableTextField.swift in Sources */,
 				576939262A73E7E2001AF59A /* SceneDelegate.swift in Sources */,
 			);
