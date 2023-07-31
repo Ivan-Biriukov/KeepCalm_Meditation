@@ -29,6 +29,7 @@ struct K {
     
     struct MusicPlayVc {
         static let soundImg : String = "circleImage"
+        static let squareImg : String = "squareImage"
     }
     
     struct ChooseSongVc {

@@ -7,7 +7,7 @@ struct CustomTabBar {
         
         let mainVC = UINavigationController(rootViewController: MainViewController())
         mainVC.title = nil
-        let soundsVC = UINavigationController(rootViewController: MainViewController())
+        let soundsVC = UINavigationController(rootViewController: SoundsRootViewController())
         soundsVC.title = nil
         let profileVC = UINavigationController(rootViewController: MainViewController())
         profileVC.title = nil
