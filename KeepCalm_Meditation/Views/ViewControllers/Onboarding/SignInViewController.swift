@@ -98,7 +98,7 @@ class SignInViewController: UIViewController {
     }
     
     @objc func loginPressed() {
-        self.navigationController?.pushViewController(MainViewController(), animated: true)
+        self.navigationController?.pushViewController(CustomTabBar.createTabBar(), animated: true)
     }
     
     @objc func signUpTaped(_ sender: UIButton) {

@@ -92,7 +92,7 @@ class SignUpViewController: UIViewController {
     }
     
     @objc func signInPressed(_ sender: UIButton) {
-        self.navigationController?.pushViewController(MainViewController(), animated: true)
+        self.navigationController?.pushViewController(CustomTabBar.createTabBar(), animated: true)
     }
     
     // MARK: - SetupUI
