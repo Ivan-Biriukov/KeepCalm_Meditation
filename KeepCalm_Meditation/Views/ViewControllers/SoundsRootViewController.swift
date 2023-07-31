@@ -3,7 +3,6 @@ import UIKit
 class SoundsRootViewController: UIViewController {
 
     // MARK: - UI Elements
-    
     private let titleBubleView : UIView = {
         let v = UIView()
         v.layer.cornerRadius = 20
@@ -82,10 +81,6 @@ class SoundsRootViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = false
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        self.navigationController?.navigationBar.isHidden = true
-    }
     
     
     // MARK: - Buttons Methods
@@ -94,6 +89,9 @@ class SoundsRootViewController: UIViewController {
         sender.alpha = 0.5
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             sender.alpha = 1
+            let player = PlayerViewController()
+            player.modalPresentationStyle = .formSheet
+            self.present(player, animated: true)
         }
     }
 
@@ -140,7 +138,6 @@ class SoundsRootViewController: UIViewController {
             songsTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             songsTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             K.DeviceSizes.currentDeviceHeight <= 568 ? songsTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50) : ((K.DeviceSizes.currentDeviceHeight <= 667) ? songsTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -60) : songsTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -80))
-            
         ])
     }
 }
@@ -156,5 +153,12 @@ extension SoundsRootViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SongsCell", for: indexPath) as! SongsTableViewCell
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let player = PlayerViewController()
+        player.modalPresentationStyle = .formSheet
+        present(player, animated: true)
     }
 }
