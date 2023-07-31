@@ -5,7 +5,7 @@ class MainViewController: UIViewController {
     var userName : String = "Test"
     
     private var contentSize : CGSize {
-        CGSize(width: view.frame.width, height: view.frame.height + 300)
+        CGSize(width: view.frame.width, height: view.frame.height)
     }
     
     // MARK: - UI Elements
@@ -13,7 +13,9 @@ class MainViewController: UIViewController {
     private lazy var scrollView : UIScrollView = {
         let s = UIScrollView()
         s.contentSize = contentSize
-        s.frame = view.bounds
+        s.isScrollEnabled = false
+        s.translatesAutoresizingMaskIntoConstraints = false
+       // s.frame = view.bounds
         return s
     }()
     
@@ -69,6 +71,7 @@ class MainViewController: UIViewController {
         let c = UICollectionView(frame: .zero, collectionViewLayout: layout)
         c.heightAnchor.constraint(equalToConstant: 120).isActive = true
         c.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 50).isActive = true
+        c.indicatorStyle = .white
         c.translatesAutoresizingMaskIntoConstraints = false
         c.backgroundColor = .clear
         return c
@@ -80,8 +83,9 @@ class MainViewController: UIViewController {
         layout.itemSize = CGSize(width: UIScreen.main.bounds.width - 60, height: 170)
         layout.minimumLineSpacing = 26
         let c = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        c.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height / 2).isActive = true
+//        c.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height / 3).isActive = true
         c.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 40).isActive = true
+        c.indicatorStyle = .white
         c.translatesAutoresizingMaskIntoConstraints = false
         c.backgroundColor = .clear
         return c
@@ -141,10 +145,16 @@ class MainViewController: UIViewController {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -60),
+            
             contentStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
             contentStackView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 20),
             contentStackView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -20),
             
+            K.DeviceSizes.currentDeviceHeight <= 568 ?         postsCollections.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height / 3) : ((K.DeviceSizes.currentDeviceHeight <= 667) ? postsCollections.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height / 2.4) : postsCollections.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height / 2.1))
         ])
     }
 }

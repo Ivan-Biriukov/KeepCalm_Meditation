@@ -17,15 +17,21 @@ struct CustomTabBar {
         tabBarVC.tabBar.backgroundColor = .clear
         tabBarVC.modalPresentationStyle = .fullScreen
         tabBarVC.tabBar.unselectedItemTintColor = .grayText()
-
-//                tabBarVC.tabBar.selectionIndicatorImage = UIImage(named: K.ButtonsImgs.TabBarButtons.selectedItemBG)
-// выставляем цвет картинки выбранного элемента (вкладки) таббара
         tabBarVC.tabBar.tintColor = .white
+        
+        if #available(iOS 13, *) {
+            let appearance = tabBarVC.tabBar.standardAppearance.copy()
+            appearance.configureWithTransparentBackground()
+            tabBarVC.tabBar.standardAppearance = appearance
+        } else {
+            tabBarVC.tabBar.shadowImage = UIImage()
+            tabBarVC.tabBar.backgroundImage = UIImage()
+        }
         
         guard let items = tabBarVC.tabBar.items else {return UITabBarController()}
         
         
-        let images = ["Home", K.NavigationControllerElements.soundsButton, K.NavigationControllerElements.profileButton]
+        let images = [K.NavigationControllerElements.homeButton, K.NavigationControllerElements.soundsButton, K.NavigationControllerElements.profileButton]
         
         for x in 0..<items.count {
             items[x].image = UIImage(named: images[x])

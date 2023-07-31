@@ -56,7 +56,7 @@ class PostCollectionViewCell: UICollectionViewCell {
     
     private let image : UIImageView = {
         let im = UIImageView()
-        im.contentMode = .scaleAspectFill
+        im.contentMode = .scaleAspectFit
         im.image = UIImage(named: K.MainVC.cardioImg)
         im.translatesAutoresizingMaskIntoConstraints = false
         return im
