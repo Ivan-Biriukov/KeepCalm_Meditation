@@ -92,4 +92,15 @@ extension ToolsRootViewController : UICollectionViewDelegate, UICollectionViewDa
         
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        
+        switch indexPath.row {
+        case 1:
+            self.navigationController?.pushViewController(MeditationViewController(), animated: true)
+        default:
+            print("Not Meditation")
+        }
+    }
 }

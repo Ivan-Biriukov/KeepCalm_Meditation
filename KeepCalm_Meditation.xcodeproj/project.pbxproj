@@ -43,6 +43,7 @@
 		57C27BBE2A7471AA008C2350 /* UIFont+ Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C27BBD2A7471AA008C2350 /* UIFont+ Extension.swift */; };
 		57C27BC02A74777F008C2350 /* UIColor+ Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C27BBF2A74777F008C2350 /* UIColor+ Extension.swift */; };
 		57C27BC92A74872F008C2350 /* ReusableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C27BC82A74872F008C2350 /* ReusableButton.swift */; };
+		57C6DC6D2A79498A0089F96A /* MeditationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C6DC6C2A79498A0089F96A /* MeditationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +84,7 @@
 		57C27BBD2A7471AA008C2350 /* UIFont+ Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+ Extension.swift"; sourceTree = "<group>"; };
 		57C27BBF2A74777F008C2350 /* UIColor+ Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+ Extension.swift"; sourceTree = "<group>"; };
 		57C27BC82A74872F008C2350 /* ReusableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableButton.swift; sourceTree = "<group>"; };
+		57C6DC6C2A79498A0089F96A /* MeditationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -294,7 +296,7 @@
 				579963872A75CFAB00F10D30 /* Onboarding */,
 				579963882A75CFCA00F10D30 /* MainViewController.swift */,
 				579B27532A78514700E277E1 /* Sounds Section */,
-				579B27542A7851D700E277E1 /* ToolsRootViewController.swift */,
+				57C6DC6B2A7949470089F96A /* Tools Section */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -314,6 +316,15 @@
 				579B27512A782E7000E277E1 /* PlayerButtons.swift */,
 			);
 			path = Buttons;
+			sourceTree = "<group>";
+		};
+		57C6DC6B2A7949470089F96A /* Tools Section */ = {
+			isa = PBXGroup;
+			children = (
+				579B27542A7851D700E277E1 /* ToolsRootViewController.swift */,
+				57C6DC6C2A79498A0089F96A /* MeditationViewController.swift */,
+			);
+			path = "Tools Section";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -409,6 +420,7 @@
 				576939282A73E7E2001AF59A /* OnboardingViewController.swift in Sources */,
 				576939242A73E7E2001AF59A /* AppDelegate.swift in Sources */,
 				57C27BC02A74777F008C2350 /* UIColor+ Extension.swift in Sources */,
+				57C6DC6D2A79498A0089F96A /* MeditationViewController.swift in Sources */,
 				579B27502A7800D600E277E1 /* PlayerViewController.swift in Sources */,
 				579B274E2A77F97000E277E1 /* SongsTableViewCell.swift in Sources */,
 				57C27BBE2A7471AA008C2350 /* UIFont+ Extension.swift in Sources */,
