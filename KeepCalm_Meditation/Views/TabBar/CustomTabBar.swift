@@ -9,10 +9,10 @@ struct CustomTabBar {
         mainVC.title = nil
         let soundsVC = UINavigationController(rootViewController: SoundsRootViewController())
         soundsVC.title = nil
-        let profileVC = UINavigationController(rootViewController: MainViewController())
-        profileVC.title = nil
+        let toolsVC = UINavigationController(rootViewController: ToolsRootViewController())
+        toolsVC.title = nil
 
-        tabBarVC.setViewControllers([mainVC, soundsVC, profileVC], animated: true)
+        tabBarVC.setViewControllers([mainVC, soundsVC, toolsVC], animated: true)
         
         tabBarVC.tabBar.backgroundColor = .clear
         tabBarVC.modalPresentationStyle = .fullScreen
