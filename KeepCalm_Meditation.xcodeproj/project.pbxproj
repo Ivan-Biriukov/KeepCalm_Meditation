@@ -44,6 +44,8 @@
 		57C27BC02A74777F008C2350 /* UIColor+ Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C27BBF2A74777F008C2350 /* UIColor+ Extension.swift */; };
 		57C27BC92A74872F008C2350 /* ReusableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C27BC82A74872F008C2350 /* ReusableButton.swift */; };
 		57C6DC6D2A79498A0089F96A /* MeditationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C6DC6C2A79498A0089F96A /* MeditationViewController.swift */; };
+		57C6DC6F2A795F360089F96A /* SleepSessionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C6DC6E2A795F360089F96A /* SleepSessionsViewController.swift */; };
+		57C6DC712A7986D60089F96A /* SleepQuolityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C6DC702A7986D60089F96A /* SleepQuolityCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +87,8 @@
 		57C27BBF2A74777F008C2350 /* UIColor+ Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+ Extension.swift"; sourceTree = "<group>"; };
 		57C27BC82A74872F008C2350 /* ReusableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableButton.swift; sourceTree = "<group>"; };
 		57C6DC6C2A79498A0089F96A /* MeditationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditationViewController.swift; sourceTree = "<group>"; };
+		57C6DC6E2A795F360089F96A /* SleepSessionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepSessionsViewController.swift; sourceTree = "<group>"; };
+		57C6DC702A7986D60089F96A /* SleepQuolityCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepQuolityCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +166,7 @@
 				57BA03982A769EC9004C7FC7 /* MoodCollectionViewCell.swift */,
 				57BA039A2A76D85E004C7FC7 /* PostCollectionViewCell.swift */,
 				579B27562A7855A300E277E1 /* ToolsCollectionViewCell.swift */,
+				57C6DC702A7986D60089F96A /* SleepQuolityCollectionViewCell.swift */,
 			);
 			path = CollectionsCells;
 			sourceTree = "<group>";
@@ -323,6 +328,7 @@
 			children = (
 				579B27542A7851D700E277E1 /* ToolsRootViewController.swift */,
 				57C6DC6C2A79498A0089F96A /* MeditationViewController.swift */,
+				57C6DC6E2A795F360089F96A /* SleepSessionsViewController.swift */,
 			);
 			path = "Tools Section";
 			sourceTree = "<group>";
@@ -419,6 +425,7 @@
 				579B27572A7855A300E277E1 /* ToolsCollectionViewCell.swift in Sources */,
 				576939282A73E7E2001AF59A /* OnboardingViewController.swift in Sources */,
 				576939242A73E7E2001AF59A /* AppDelegate.swift in Sources */,
+				57C6DC712A7986D60089F96A /* SleepQuolityCollectionViewCell.swift in Sources */,
 				57C27BC02A74777F008C2350 /* UIColor+ Extension.swift in Sources */,
 				57C6DC6D2A79498A0089F96A /* MeditationViewController.swift in Sources */,
 				579B27502A7800D600E277E1 /* PlayerViewController.swift in Sources */,
@@ -427,6 +434,7 @@
 				579B27552A7851D700E277E1 /* ToolsRootViewController.swift in Sources */,
 				5769392E2A73E7E2001AF59A /* KeepCalm_Meditation.xcdatamodeld in Sources */,
 				579963862A75AA5700F10D30 /* SignUpViewController.swift in Sources */,
+				57C6DC6F2A795F360089F96A /* SleepSessionsViewController.swift in Sources */,
 				579B27592A785CE300E277E1 /* ToolsElementsModel.swift in Sources */,
 				579963892A75CFCA00F10D30 /* MainViewController.swift in Sources */,
 				5799637A2A75495700F10D30 /* UITextField+ Extension.swift in Sources */,

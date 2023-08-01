@@ -15,7 +15,6 @@ class MainViewController: UIViewController {
         s.contentSize = contentSize
         s.isScrollEnabled = false
         s.translatesAutoresizingMaskIntoConstraints = false
-       // s.frame = view.bounds
         return s
     }()
     

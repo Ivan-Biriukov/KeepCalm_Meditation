@@ -99,6 +99,8 @@ extension ToolsRootViewController : UICollectionViewDelegate, UICollectionViewDa
         switch indexPath.row {
         case 1:
             self.navigationController?.pushViewController(MeditationViewController(), animated: true)
+        case 2:
+            self.navigationController?.pushViewController(SleepSessionsViewController(), animated: true)
         default:
             print("Not Meditation")
         }
