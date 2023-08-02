@@ -1,4 +1,5 @@
 import UIKit
+import DGCharts
 
 class SleepSessionsViewController: UIViewController {
     
@@ -11,7 +12,7 @@ class SleepSessionsViewController: UIViewController {
     private lazy var scrollView : UIScrollView = {
         let s = UIScrollView()
         s.contentSize = contentSize
-        s.isScrollEnabled = false
+        s.isScrollEnabled = true
         s.translatesAutoresizingMaskIntoConstraints = false
         return s
     }()
@@ -172,6 +173,36 @@ class SleepSessionsViewController: UIViewController {
         return lb
     }()
     
+  //  private let bedTimeChart = LineChartView()
+    
+    private lazy var bedTimeChart : LineChartView = {
+        let chart = LineChartView()
+        chart.translatesAutoresizingMaskIntoConstraints = false
+        chart.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 60).isActive = true
+        chart.heightAnchor.constraint(equalToConstant: K.DeviceSizes.currentDeviceHeight / 3).isActive = true
+        chart.rightAxis.enabled = false
+        
+        let yAxis = chart.leftAxis
+        yAxis.labelFont = .alegreyaSansRegular14() ?? UIFont.systemFont(ofSize: 14)
+        yAxis.labelTextColor = .white
+        yAxis.setLabelCount(5, force: false)
+        yAxis.axisLineColor = .white
+        yAxis.axisLineWidth = 2.5
+        yAxis.labelPosition = .outsideChart
+        
+        
+        chart.xAxis.labelPosition = .bottom
+        chart.xAxis.labelFont = .alegreyaSansRegular14() ?? UIFont.systemFont(ofSize: 14)
+        chart.xAxis.labelTextColor = .white
+        chart.xAxis.setLabelCount(12, force: false)
+        chart.xAxis.axisLineWidth = 2.5
+        chart.xAxis.axisLineColor = .white
+        
+        chart.animate(xAxisDuration: 2.0)
+        return chart
+    }()
+    
+    
     // MARK: - LifeCycle Methods
 
     override func viewDidLoad() {
@@ -181,6 +212,7 @@ class SleepSessionsViewController: UIViewController {
         setupConstraints()
         configureNavBar()
         configureCollectionView()
+        configureChart()
     }
     
     // MARK: - Buttons Methods
@@ -192,6 +224,30 @@ class SleepSessionsViewController: UIViewController {
         sleepSessionQuolityCollection.delegate = self
         sleepSessionQuolityCollection.dataSource = self
         sleepSessionQuolityCollection.register(SleepQuolityCollectionViewCell.self, forCellWithReuseIdentifier: "SleepCell")
+    }
+    
+    private func configureChart() {
+        bedTimeChart.delegate = self
+        
+        var sampleData = [ChartDataEntry]()
+        
+        for x in 0..<10 {
+            sampleData.append(ChartDataEntry(x: Double(x), y: Double(x)))
+        }
+        
+        let set = LineChartDataSet(entries: sampleData)
+        set.colors = [NSUIColor.systemGreen]
+        set.drawCircleHoleEnabled = false
+        set.drawCirclesEnabled = false
+        set.mode = .cubicBezier
+        set.lineWidth = 2.5
+        set.drawHorizontalHighlightIndicatorEnabled = false
+        set.drawVerticalHighlightIndicatorEnabled = false
+        
+        let data = LineChartData(dataSet: set)
+        data.setDrawValues(false)
+
+        bedTimeChart.data = data
     }
     
     private func addSubviews() {
@@ -211,6 +267,7 @@ class SleepSessionsViewController: UIViewController {
         contentStackView.addArrangedSubview(sleepSessionTitleLabel)
         contentStackView.addArrangedSubview(sleepSessionQuolityCollection)
         contentStackView.addArrangedSubview(bedTimeTitleLabel)
+        contentStackView.addArrangedSubview(bedTimeChart)
     }
     
     private func setupConstraints() {
@@ -245,6 +302,10 @@ extension SleepSessionsViewController : UICollectionViewDelegate, UICollectionVi
         
         return cell
     }
-    
-    
+}
+
+// MARK: - DGChart Delegate
+
+extension SleepSessionsViewController: ChartViewDelegate {
+ 
 }

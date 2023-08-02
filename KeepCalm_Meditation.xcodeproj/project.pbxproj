@@ -46,6 +46,7 @@
 		57C6DC6D2A79498A0089F96A /* MeditationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C6DC6C2A79498A0089F96A /* MeditationViewController.swift */; };
 		57C6DC6F2A795F360089F96A /* SleepSessionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C6DC6E2A795F360089F96A /* SleepSessionsViewController.swift */; };
 		57C6DC712A7986D60089F96A /* SleepQuolityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C6DC702A7986D60089F96A /* SleepQuolityCollectionViewCell.swift */; };
+		57C6DC862A79C0390089F96A /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 57C6DC852A79C0390089F96A /* DGCharts */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57C6DC862A79C0390089F96A /* DGCharts in Frameworks */,
 				579963822A75A5ED00F10D30 /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -351,6 +353,7 @@
 			name = KeepCalm_Meditation;
 			packageProductDependencies = (
 				579963812A75A5ED00F10D30 /* IQKeyboardManagerSwift */,
+				57C6DC852A79C0390089F96A /* DGCharts */,
 			);
 			productName = KeepCalm_Meditation;
 			productReference = 576939202A73E7E2001AF59A /* KeepCalm_Meditation.app */;
@@ -382,6 +385,7 @@
 			mainGroup = 576939172A73E7E2001AF59A;
 			packageReferences = (
 				579963802A75A5ED00F10D30 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				57C6DC842A79C0390089F96A /* XCRemoteSwiftPackageReference "DGCharts" */,
 			);
 			productRefGroup = 576939212A73E7E2001AF59A /* Products */;
 			projectDirPath = "";
@@ -672,6 +676,14 @@
 				minimumVersion = 6.5.0;
 			};
 		};
+		57C6DC842A79C0390089F96A /* XCRemoteSwiftPackageReference "DGCharts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/valdperformance/DGCharts";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -679,6 +691,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 579963802A75A5ED00F10D30 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
 			productName = IQKeyboardManagerSwift;
+		};
+		57C6DC852A79C0390089F96A /* DGCharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 57C6DC842A79C0390089F96A /* XCRemoteSwiftPackageReference "DGCharts" */;
+			productName = DGCharts;
 		};
 /* End XCSwiftPackageProductDependency section */
 
