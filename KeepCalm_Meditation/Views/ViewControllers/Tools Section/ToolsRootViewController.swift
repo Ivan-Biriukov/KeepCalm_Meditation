@@ -7,7 +7,6 @@ class ToolsRootViewController: UIViewController {
         .init(backgroundImg: UIImage(named: K.ToolsVC.firstImage), iconImgString: "arrow.up.message.fill", title: "Mood Booster"),
         .init(backgroundImg: UIImage(named: K.ToolsVC.secongImage), iconImgString: "waveform.path.ecg", title: "Meditation"),
         .init(backgroundImg: UIImage(named: K.ToolsVC.thirdImage), iconImgString: "powersleep", title: "Sleep Session"),
-        .init(backgroundImg: UIImage(named: K.ToolsVC.fourthImage), iconImgString: "arrow.up.heart.fill", title: "Stats")
     ]
     
     
@@ -97,6 +96,8 @@ extension ToolsRootViewController : UICollectionViewDelegate, UICollectionViewDa
         collectionView.deselectItem(at: indexPath, animated: true)
         
         switch indexPath.row {
+        case 0 :
+            self.navigationController?.pushViewController(MoodBoosterViewController(), animated: true)
         case 1:
             self.navigationController?.pushViewController(MeditationViewController(), animated: true)
         case 2:

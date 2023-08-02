@@ -28,6 +28,7 @@
 		579B27552A7851D700E277E1 /* ToolsRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579B27542A7851D700E277E1 /* ToolsRootViewController.swift */; };
 		579B27572A7855A300E277E1 /* ToolsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579B27562A7855A300E277E1 /* ToolsCollectionViewCell.swift */; };
 		579B27592A785CE300E277E1 /* ToolsElementsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579B27582A785CE300E277E1 /* ToolsElementsModel.swift */; };
+		579CE0E32A7AD1AD0084AAD6 /* MoodBoosterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579CE0E22A7AD1AD0084AAD6 /* MoodBoosterViewController.swift */; };
 		57BA03992A769EC9004C7FC7 /* MoodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BA03982A769EC9004C7FC7 /* MoodCollectionViewCell.swift */; };
 		57BA039B2A76D85E004C7FC7 /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BA039A2A76D85E004C7FC7 /* PostCollectionViewCell.swift */; };
 		57BA039D2A76E314004C7FC7 /* UIButton+ Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BA039C2A76E314004C7FC7 /* UIButton+ Extension.swift */; };
@@ -72,6 +73,7 @@
 		579B27542A7851D700E277E1 /* ToolsRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsRootViewController.swift; sourceTree = "<group>"; };
 		579B27562A7855A300E277E1 /* ToolsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsCollectionViewCell.swift; sourceTree = "<group>"; };
 		579B27582A785CE300E277E1 /* ToolsElementsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsElementsModel.swift; sourceTree = "<group>"; };
+		579CE0E22A7AD1AD0084AAD6 /* MoodBoosterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodBoosterViewController.swift; sourceTree = "<group>"; };
 		57BA03982A769EC9004C7FC7 /* MoodCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodCollectionViewCell.swift; sourceTree = "<group>"; };
 		57BA039A2A76D85E004C7FC7 /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCell.swift; sourceTree = "<group>"; };
 		57BA039C2A76E314004C7FC7 /* UIButton+ Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+ Extension.swift"; sourceTree = "<group>"; };
@@ -331,6 +333,7 @@
 				579B27542A7851D700E277E1 /* ToolsRootViewController.swift */,
 				57C6DC6C2A79498A0089F96A /* MeditationViewController.swift */,
 				57C6DC6E2A795F360089F96A /* SleepSessionsViewController.swift */,
+				579CE0E22A7AD1AD0084AAD6 /* MoodBoosterViewController.swift */,
 			);
 			path = "Tools Section";
 			sourceTree = "<group>";
@@ -442,6 +445,7 @@
 				579B27592A785CE300E277E1 /* ToolsElementsModel.swift in Sources */,
 				579963892A75CFCA00F10D30 /* MainViewController.swift in Sources */,
 				5799637A2A75495700F10D30 /* UITextField+ Extension.swift in Sources */,
+				579CE0E32A7AD1AD0084AAD6 /* MoodBoosterViewController.swift in Sources */,
 				5799637F2A755BB200F10D30 /* LoginTopStack.swift in Sources */,
 				57BA039B2A76D85E004C7FC7 /* PostCollectionViewCell.swift in Sources */,
 				57C27BC92A74872F008C2350 /* ReusableButton.swift in Sources */,
