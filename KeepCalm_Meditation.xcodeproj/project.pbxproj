@@ -25,6 +25,10 @@
 		579B274E2A77F97000E277E1 /* SongsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579B274D2A77F97000E277E1 /* SongsTableViewCell.swift */; };
 		579B27502A7800D600E277E1 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579B274F2A7800D600E277E1 /* PlayerViewController.swift */; };
 		579B27522A782E7000E277E1 /* PlayerButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579B27512A782E7000E277E1 /* PlayerButtons.swift */; };
+		579B27552A7851D700E277E1 /* ToolsRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579B27542A7851D700E277E1 /* ToolsRootViewController.swift */; };
+		579B27572A7855A300E277E1 /* ToolsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579B27562A7855A300E277E1 /* ToolsCollectionViewCell.swift */; };
+		579B27592A785CE300E277E1 /* ToolsElementsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579B27582A785CE300E277E1 /* ToolsElementsModel.swift */; };
+		579CE0E32A7AD1AD0084AAD6 /* MoodBoosterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579CE0E22A7AD1AD0084AAD6 /* MoodBoosterViewController.swift */; };
 		57BA03992A769EC9004C7FC7 /* MoodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BA03982A769EC9004C7FC7 /* MoodCollectionViewCell.swift */; };
 		57BA039B2A76D85E004C7FC7 /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BA039A2A76D85E004C7FC7 /* PostCollectionViewCell.swift */; };
 		57BA039D2A76E314004C7FC7 /* UIButton+ Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BA039C2A76E314004C7FC7 /* UIButton+ Extension.swift */; };
@@ -40,6 +44,10 @@
 		57C27BBE2A7471AA008C2350 /* UIFont+ Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C27BBD2A7471AA008C2350 /* UIFont+ Extension.swift */; };
 		57C27BC02A74777F008C2350 /* UIColor+ Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C27BBF2A74777F008C2350 /* UIColor+ Extension.swift */; };
 		57C27BC92A74872F008C2350 /* ReusableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C27BC82A74872F008C2350 /* ReusableButton.swift */; };
+		57C6DC6D2A79498A0089F96A /* MeditationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C6DC6C2A79498A0089F96A /* MeditationViewController.swift */; };
+		57C6DC6F2A795F360089F96A /* SleepSessionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C6DC6E2A795F360089F96A /* SleepSessionsViewController.swift */; };
+		57C6DC712A7986D60089F96A /* SleepQuolityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C6DC702A7986D60089F96A /* SleepQuolityCollectionViewCell.swift */; };
+		57C6DC862A79C0390089F96A /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 57C6DC852A79C0390089F96A /* DGCharts */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +70,10 @@
 		579B274D2A77F97000E277E1 /* SongsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsTableViewCell.swift; sourceTree = "<group>"; };
 		579B274F2A7800D600E277E1 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		579B27512A782E7000E277E1 /* PlayerButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerButtons.swift; sourceTree = "<group>"; };
+		579B27542A7851D700E277E1 /* ToolsRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsRootViewController.swift; sourceTree = "<group>"; };
+		579B27562A7855A300E277E1 /* ToolsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsCollectionViewCell.swift; sourceTree = "<group>"; };
+		579B27582A785CE300E277E1 /* ToolsElementsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsElementsModel.swift; sourceTree = "<group>"; };
+		579CE0E22A7AD1AD0084AAD6 /* MoodBoosterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodBoosterViewController.swift; sourceTree = "<group>"; };
 		57BA03982A769EC9004C7FC7 /* MoodCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodCollectionViewCell.swift; sourceTree = "<group>"; };
 		57BA039A2A76D85E004C7FC7 /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCell.swift; sourceTree = "<group>"; };
 		57BA039C2A76E314004C7FC7 /* UIButton+ Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+ Extension.swift"; sourceTree = "<group>"; };
@@ -77,6 +89,9 @@
 		57C27BBD2A7471AA008C2350 /* UIFont+ Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+ Extension.swift"; sourceTree = "<group>"; };
 		57C27BBF2A74777F008C2350 /* UIColor+ Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+ Extension.swift"; sourceTree = "<group>"; };
 		57C27BC82A74872F008C2350 /* ReusableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableButton.swift; sourceTree = "<group>"; };
+		57C6DC6C2A79498A0089F96A /* MeditationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditationViewController.swift; sourceTree = "<group>"; };
+		57C6DC6E2A795F360089F96A /* SleepSessionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepSessionsViewController.swift; sourceTree = "<group>"; };
+		57C6DC702A7986D60089F96A /* SleepQuolityCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepQuolityCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57C6DC862A79C0390089F96A /* DGCharts in Frameworks */,
 				579963822A75A5ED00F10D30 /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -153,6 +169,8 @@
 			children = (
 				57BA03982A769EC9004C7FC7 /* MoodCollectionViewCell.swift */,
 				57BA039A2A76D85E004C7FC7 /* PostCollectionViewCell.swift */,
+				579B27562A7855A300E277E1 /* ToolsCollectionViewCell.swift */,
+				57C6DC702A7986D60089F96A /* SleepQuolityCollectionViewCell.swift */,
 			);
 			path = CollectionsCells;
 			sourceTree = "<group>";
@@ -163,6 +181,15 @@
 				579B274D2A77F97000E277E1 /* SongsTableViewCell.swift */,
 			);
 			path = TableCells;
+			sourceTree = "<group>";
+		};
+		579B27532A78514700E277E1 /* Sounds Section */ = {
+			isa = PBXGroup;
+			children = (
+				579B27492A77E8D100E277E1 /* SoundsRootViewController.swift */,
+				579B274F2A7800D600E277E1 /* PlayerViewController.swift */,
+			);
+			path = "Sounds Section";
 			sourceTree = "<group>";
 		};
 		57BA03972A769EA9004C7FC7 /* Cells */ = {
@@ -246,6 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				57C27BC52A747B9D008C2350 /* CoreData */,
+				579B27582A785CE300E277E1 /* ToolsElementsModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -276,8 +304,8 @@
 				576939312A73E7E7001AF59A /* LaunchScreen.storyboard */,
 				579963872A75CFAB00F10D30 /* Onboarding */,
 				579963882A75CFCA00F10D30 /* MainViewController.swift */,
-				579B27492A77E8D100E277E1 /* SoundsRootViewController.swift */,
-				579B274F2A7800D600E277E1 /* PlayerViewController.swift */,
+				579B27532A78514700E277E1 /* Sounds Section */,
+				57C6DC6B2A7949470089F96A /* Tools Section */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -299,6 +327,17 @@
 			path = Buttons;
 			sourceTree = "<group>";
 		};
+		57C6DC6B2A7949470089F96A /* Tools Section */ = {
+			isa = PBXGroup;
+			children = (
+				579B27542A7851D700E277E1 /* ToolsRootViewController.swift */,
+				57C6DC6C2A79498A0089F96A /* MeditationViewController.swift */,
+				57C6DC6E2A795F360089F96A /* SleepSessionsViewController.swift */,
+				579CE0E22A7AD1AD0084AAD6 /* MoodBoosterViewController.swift */,
+			);
+			path = "Tools Section";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -317,6 +356,7 @@
 			name = KeepCalm_Meditation;
 			packageProductDependencies = (
 				579963812A75A5ED00F10D30 /* IQKeyboardManagerSwift */,
+				57C6DC852A79C0390089F96A /* DGCharts */,
 			);
 			productName = KeepCalm_Meditation;
 			productReference = 576939202A73E7E2001AF59A /* KeepCalm_Meditation.app */;
@@ -348,6 +388,7 @@
 			mainGroup = 576939172A73E7E2001AF59A;
 			packageReferences = (
 				579963802A75A5ED00F10D30 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				57C6DC842A79C0390089F96A /* XCRemoteSwiftPackageReference "DGCharts" */,
 			);
 			productRefGroup = 576939212A73E7E2001AF59A /* Products */;
 			projectDirPath = "";
@@ -388,16 +429,23 @@
 				57BA03A02A770E15004C7FC7 /* CustomTabBar.swift in Sources */,
 				57BA039D2A76E314004C7FC7 /* UIButton+ Extension.swift in Sources */,
 				57C27BA92A746286008C2350 /* Constants.swift in Sources */,
+				579B27572A7855A300E277E1 /* ToolsCollectionViewCell.swift in Sources */,
 				576939282A73E7E2001AF59A /* OnboardingViewController.swift in Sources */,
 				576939242A73E7E2001AF59A /* AppDelegate.swift in Sources */,
+				57C6DC712A7986D60089F96A /* SleepQuolityCollectionViewCell.swift in Sources */,
 				57C27BC02A74777F008C2350 /* UIColor+ Extension.swift in Sources */,
+				57C6DC6D2A79498A0089F96A /* MeditationViewController.swift in Sources */,
 				579B27502A7800D600E277E1 /* PlayerViewController.swift in Sources */,
 				579B274E2A77F97000E277E1 /* SongsTableViewCell.swift in Sources */,
 				57C27BBE2A7471AA008C2350 /* UIFont+ Extension.swift in Sources */,
+				579B27552A7851D700E277E1 /* ToolsRootViewController.swift in Sources */,
 				5769392E2A73E7E2001AF59A /* KeepCalm_Meditation.xcdatamodeld in Sources */,
 				579963862A75AA5700F10D30 /* SignUpViewController.swift in Sources */,
+				57C6DC6F2A795F360089F96A /* SleepSessionsViewController.swift in Sources */,
+				579B27592A785CE300E277E1 /* ToolsElementsModel.swift in Sources */,
 				579963892A75CFCA00F10D30 /* MainViewController.swift in Sources */,
 				5799637A2A75495700F10D30 /* UITextField+ Extension.swift in Sources */,
+				579CE0E32A7AD1AD0084AAD6 /* MoodBoosterViewController.swift in Sources */,
 				5799637F2A755BB200F10D30 /* LoginTopStack.swift in Sources */,
 				57BA039B2A76D85E004C7FC7 /* PostCollectionViewCell.swift in Sources */,
 				57C27BC92A74872F008C2350 /* ReusableButton.swift in Sources */,
@@ -632,6 +680,14 @@
 				minimumVersion = 6.5.0;
 			};
 		};
+		57C6DC842A79C0390089F96A /* XCRemoteSwiftPackageReference "DGCharts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/valdperformance/DGCharts";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -639,6 +695,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 579963802A75A5ED00F10D30 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
 			productName = IQKeyboardManagerSwift;
+		};
+		57C6DC852A79C0390089F96A /* DGCharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 57C6DC842A79C0390089F96A /* XCRemoteSwiftPackageReference "DGCharts" */;
+			productName = DGCharts;
 		};
 /* End XCSwiftPackageProductDependency section */
 
