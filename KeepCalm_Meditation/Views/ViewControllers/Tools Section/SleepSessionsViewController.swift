@@ -181,15 +181,18 @@ class SleepSessionsViewController: UIViewController {
         chart.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 60).isActive = true
         chart.heightAnchor.constraint(equalToConstant: K.DeviceSizes.currentDeviceHeight / 3).isActive = true
         chart.rightAxis.enabled = false
+        chart.doubleTapToZoomEnabled = false
+        chart.dragEnabled = false
+        chart.leftAxis.gridColor = .clear
+        chart.xAxis.gridColor = .clear
         
         let yAxis = chart.leftAxis
         yAxis.labelFont = .alegreyaSansRegular14() ?? UIFont.systemFont(ofSize: 14)
         yAxis.labelTextColor = .white
-        yAxis.setLabelCount(5, force: false)
+        yAxis.setLabelCount(8, force: false)
         yAxis.axisLineColor = .white
         yAxis.axisLineWidth = 2.5
         yAxis.labelPosition = .outsideChart
-        
         
         chart.xAxis.labelPosition = .bottom
         chart.xAxis.labelFont = .alegreyaSansRegular14() ?? UIFont.systemFont(ofSize: 14)
@@ -197,6 +200,9 @@ class SleepSessionsViewController: UIViewController {
         chart.xAxis.setLabelCount(12, force: false)
         chart.xAxis.axisLineWidth = 2.5
         chart.xAxis.axisLineColor = .white
+        let months = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]
+        chart.xAxis.valueFormatter = IndexAxisValueFormatter(values:months)
+        chart.xAxis.granularity = 1
         
         chart.animate(xAxisDuration: 2.0)
         return chart
@@ -235,7 +241,7 @@ class SleepSessionsViewController: UIViewController {
             sampleData.append(ChartDataEntry(x: Double(x), y: Double(x)))
         }
         
-        let set = LineChartDataSet(entries: sampleData)
+        let set = LineChartDataSet(entries: sampleData, label: "Hours per month")
         set.colors = [NSUIColor.systemGreen]
         set.drawCircleHoleEnabled = false
         set.drawCirclesEnabled = false
@@ -272,14 +278,15 @@ class SleepSessionsViewController: UIViewController {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            K.DeviceSizes.currentDeviceHeight <= 568 ? scrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 60) : ((K.DeviceSizes.currentDeviceHeight <= 667) ? scrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 70) : scrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 90)),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -60),
+            K.DeviceSizes.currentDeviceHeight <= 568 ? scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -60) : ((K.DeviceSizes.currentDeviceHeight <= 667) ? scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -70) : scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -90)),
             
             contentStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
             contentStackView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 20),
             contentStackView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -20),
+            contentStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             
             sleepTimerTitleLabel.leadingAnchor.constraint(equalTo: contentStackView.leadingAnchor),
             sleepSessionTitleLabel.leadingAnchor.constraint(equalTo: contentStackView.leadingAnchor),
