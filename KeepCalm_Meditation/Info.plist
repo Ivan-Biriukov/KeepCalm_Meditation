@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>We need acess to media files in case you wnat to update profile photo</string>
+	<key>NSCameraUsageDescription</key>
+	<string>We Need acces to camera in case , if you want to take a new profile photo using it.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Karla-Regular.ttf</string>

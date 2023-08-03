@@ -24,6 +24,7 @@ extension UIViewController {
         let menuButton : UIButton = {
             let b = UIButton()
             b.setImage(UIImage(named: K.NavigationControllerElements.menuButton), for: .normal)
+            b.addTarget(self, action: #selector(menuButtonTaped), for: .touchUpInside)
             return b
         }()
         
@@ -47,6 +48,13 @@ extension UIViewController {
             return v
         }()
         self.navigationItem.titleView = logoImage
+    }
+    
+    @objc func menuButtonTaped() {
+        let menuVC = MenuViewController()
+        menuVC.transitioningDelegate = MenuViewController.shared
+        menuVC.modalPresentationStyle = .custom
+        present(menuVC, animated: true, completion: nil)
     }
     
 }
