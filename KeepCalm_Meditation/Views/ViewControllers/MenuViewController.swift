@@ -52,10 +52,10 @@ class MenuViewController: UIViewController {
     private let userAvatarImg : UIImageView = {
         let img = UIImageView()
         img.image = UIImage(named: K.userAvatarImg)
-        img.contentMode = .scaleAspectFill
         img.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.width / 2).isActive = true
         img.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width / 2).isActive = true
-        img.layer.cornerRadius = UIScreen.main.bounds.width / 2
+        img.layer.cornerRadius = UIScreen.main.bounds.width / 4
+        img.layer.masksToBounds = true
         img.translatesAutoresizingMaskIntoConstraints = false
         return img
     }()
@@ -127,7 +127,7 @@ class MenuViewController: UIViewController {
     private lazy var emailStack : UIStackView = {
         let stack = UIStackView()
         stack.axis = .horizontal
-        stack.distribution = .equalCentering
+        stack.distribution = .equalSpacing
         stack.alignment = .center
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
@@ -175,6 +175,15 @@ class MenuViewController: UIViewController {
         return btn
     }()
     
+    
+    private let photoPikerView : UIImagePickerController = {
+        let piker = UIImagePickerController()
+        piker.allowsEditing = false
+        return piker
+    }()
+    
+    
+    
     // MARK: - LifeCycle Methods
 
     override func viewDidLoad() {
@@ -182,7 +191,7 @@ class MenuViewController: UIViewController {
         view.backgroundColor = .mainBackgroundColor()
         addSubviews()
         setupConstraints()
-
+        configurePiker()
     }
     
     // MARK: -  Buttons Methods
@@ -191,35 +200,76 @@ class MenuViewController: UIViewController {
         self.dismiss(animated: true)
     }
     
-    @objc func choosePhotoTaped() {}
+    @objc func choosePhotoTaped() {
+        photoPikerView.sourceType = .photoLibrary
+        present(photoPikerView, animated: true)
+        
+    }
     
-    @objc func takePhotoTaped() {}
+    @objc func takePhotoTaped() {
+        photoPikerView.sourceType = .camera
+        present(photoPikerView, animated: true)
+    }
     
     @objc func editNameTaped() {
-        var newName : String = ""
         var textField1 = UITextField()
         let alert = UIAlertController(title: "Change User Name", message: nil, preferredStyle: .alert)
         
         alert.addTextField { textField in
             textField1 = textField
             textField.placeholder = "Enter Your Name"
-            if let saveText = textField.text {
-                newName = saveText
-                //confirmAction.isEnabled = true
-                //self.nameLabel.text = new
-            } else {
-                textField.placeholder = "Please fill the Name"
-                //confirmAction.isEnabled = false
+        }
+        
+        let confirmChangesAction = UIAlertAction(title: "Save & Close", style: .default) { _ in
+            if let saveNewName = textField1.text {
+                if saveNewName == "" || saveNewName == self.nameLabel.text {
+                    textField1.placeholder = "Please enter New Value"
+                    self.present(alert, animated: true, completion: nil)
+                } else {
+                    self.nameLabel.text = saveNewName
+                }
             }
         }
         
-        let action = UIAlertAction(title: "Save Changes", style: .destructive)
-        alert.addAction(action)
+        let exitAction = UIAlertAction(title: "Exit", style: .destructive)
 
+        alert.addAction(confirmChangesAction)
+        alert.addAction(exitAction)
+        
         self.present(alert, animated: true)
     }
     
-    @objc func editEmailTaped() {}
+    @objc func editEmailTaped() {
+        var textField1 = UITextField()
+        let charset = CharacterSet(charactersIn: "@.")
+        
+        let alert = UIAlertController(title: "Change E-mail adress", message: "Please enter new email adress here. It will be automaticaly change", preferredStyle: .alert)
+        
+        alert.addTextField { textField in
+            textField1 = textField
+            textField.placeholder = "Enter email"
+        }
+        
+        let confirmChangesAction = UIAlertAction(title: "Save & Close", style: .default) { _ in
+            if let saveNewName = textField1.text {
+                if saveNewName == "" || saveNewName == self.emailLabel.text || saveNewName.rangeOfCharacter(from: charset) == nil {
+                    textField1.placeholder = "Invalid Email adress"
+                    self.present(alert, animated: true, completion: nil)
+                    textField1.text = ""
+                } else {
+                    self.emailLabel.text = saveNewName
+                }
+            }
+        }
+        
+        let exitAction = UIAlertAction(title: "Exit", style: .destructive)
+
+        alert.addAction(confirmChangesAction)
+        alert.addAction(exitAction)
+        
+        self.present(alert, animated: true)
+        
+    }
     
     @objc func recoverTaped() {}
     
@@ -253,10 +303,11 @@ class MenuViewController: UIViewController {
             contentStack.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         ])
     }
+    
+    private func configurePiker() {
+        photoPikerView.delegate = self
+    }
 }
-
-
-
 
 // MARK: - BonsaiController Extension
 
@@ -282,3 +333,18 @@ extension MenuViewController: BonsaiControllerDelegate {
         
     }
 }
+
+// MARK: - UIPickerDelegate
+
+extension MenuViewController : UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        let tempImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        userAvatarImg.image  = tempImage
+        self.dismiss(animated: true, completion: nil)
+    }
+
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }}
