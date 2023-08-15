@@ -13,6 +13,7 @@
 		5769392E2A73E7E2001AF59A /* KeepCalm_Meditation.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5769392C2A73E7E2001AF59A /* KeepCalm_Meditation.xcdatamodeld */; };
 		576939302A73E7E7001AF59A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5769392F2A73E7E7001AF59A /* Assets.xcassets */; };
 		576939332A73E7E7001AF59A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 576939312A73E7E7001AF59A /* LaunchScreen.storyboard */; };
+		579771E72A8B92AA00FCA1F1 /* AccountRegistrationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579771E62A8B92AA00FCA1F1 /* AccountRegistrationModel.swift */; };
 		579963782A7547AD00F10D30 /* ReusableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579963772A7547AD00F10D30 /* ReusableTextField.swift */; };
 		5799637A2A75495700F10D30 /* UITextField+ Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579963792A75495700F10D30 /* UITextField+ Extension.swift */; };
 		5799637C2A75516700F10D30 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5799637B2A75516700F10D30 /* SignInViewController.swift */; };
@@ -66,6 +67,7 @@
 		5769392F2A73E7E7001AF59A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		576939322A73E7E7001AF59A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		576939342A73E7E7001AF59A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		579771E62A8B92AA00FCA1F1 /* AccountRegistrationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRegistrationModel.swift; sourceTree = "<group>"; };
 		579963772A7547AD00F10D30 /* ReusableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableTextField.swift; sourceTree = "<group>"; };
 		579963792A75495700F10D30 /* UITextField+ Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+ Extension.swift"; sourceTree = "<group>"; };
 		5799637B2A75516700F10D30 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 			children = (
 				57C27BC52A747B9D008C2350 /* CoreData */,
 				579B27582A785CE300E277E1 /* ToolsElementsModel.swift */,
+				579771E62A8B92AA00FCA1F1 /* AccountRegistrationModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -475,6 +478,7 @@
 				579CE0E32A7AD1AD0084AAD6 /* MoodBoosterViewController.swift in Sources */,
 				5799637F2A755BB200F10D30 /* LoginTopStack.swift in Sources */,
 				57BA039B2A76D85E004C7FC7 /* PostCollectionViewCell.swift in Sources */,
+				579771E72A8B92AA00FCA1F1 /* AccountRegistrationModel.swift in Sources */,
 				57C27BC92A74872F008C2350 /* ReusableButton.swift in Sources */,
 				57BA03992A769EC9004C7FC7 /* MoodCollectionViewCell.swift in Sources */,
 				579963782A7547AD00F10D30 /* ReusableTextField.swift in Sources */,

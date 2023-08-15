@@ -54,6 +54,7 @@ extension UIViewController {
         let menuVC = MenuViewController()
         menuVC.transitioningDelegate = MenuViewController.shared
         menuVC.modalPresentationStyle = .custom
+        ViewModel.shared.loadUserData()
         present(menuVC, animated: true, completion: nil)
     }
     

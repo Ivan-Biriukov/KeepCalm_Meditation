@@ -192,6 +192,7 @@ class MenuViewController: UIViewController {
         addSubviews()
         setupConstraints()
         configurePiker()
+        bindViewModel()
     }
     
     // MARK: -  Buttons Methods
@@ -273,7 +274,12 @@ class MenuViewController: UIViewController {
     
     @objc func recoverTaped() {}
     
-    @objc func logoutTaped() {}
+    @objc func logoutTaped() {
+        ViewModel.shared.logOut()
+        self.dismiss(animated: true)
+        navigationController?.pushViewController(SignInViewController.shared, animated: true)
+        print("Logged out")
+    }
     
     // MARK: - Configure UI
     
@@ -306,6 +312,15 @@ class MenuViewController: UIViewController {
     
     private func configurePiker() {
         photoPikerView.delegate = self
+    }
+    
+    private func bindViewModel() {
+        ViewModel.shared.userAccountDataStatus.bind { UserData in
+            DispatchQueue.main.async {
+                self.emailLabel.text = UserData.userEmail
+                self.nameLabel.text = UserData.userName
+            }
+        }
     }
 }
 

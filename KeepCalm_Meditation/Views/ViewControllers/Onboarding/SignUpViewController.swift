@@ -2,8 +2,7 @@ import UIKit
 
 class SignUpViewController: UIViewController {
     
-    private var registerSucseed : Bool?
-    private var registrationErrorText : String?
+    private var currentUser = AccountRegistrationModel(succeed: Bool(), title: "", message: "")
     
     // MARK: - UI Elements
     
@@ -101,10 +100,17 @@ class SignUpViewController: UIViewController {
         }
     }
     
-    private func showAllert(titleText: String,messageText : String) {
+    private func showAllert(titleText: String,messageText : String, succeed : Bool) {
         let alert = UIAlertController(title: titleText, message: messageText, preferredStyle: .alert)
-        let action = UIAlertAction(title: "Got it", style: .default)
-        alert.addAction(action)
+        if succeed {
+            let action = UIAlertAction(title: "Log In", style: .default) { (action) in
+                self.navigationController?.popViewController(animated: true)
+            }
+            alert.addAction(action)
+        } else {
+            let action = UIAlertAction(title: "Got it", style: .cancel)
+            alert.addAction(action)
+        }
         self.present(alert, animated: true)
     }
     
@@ -121,20 +127,9 @@ class SignUpViewController: UIViewController {
     }
     
     private func bindViewModel() {
-        ViewModel.shared.registerErrorText.bind { text in
-            self.registrationErrorText = text
-            if let safeError = self.registrationErrorText {
-                DispatchQueue.main.async {
-                    self.showAllert(titleText: "error", messageText: self.registrationErrorText!)
-                }
-            }
-        }
-        ViewModel.shared.registerStatus.bind { registerStatus in
-            self.registerSucseed = registerStatus
-            if registerStatus {
-                DispatchQueue.main.async {
-                    self.showAllert(titleText: "sdaad", messageText: "dsasa")
-                }
+        ViewModel.shared.registerStatus.bind { AccountRegistrationModel in
+            DispatchQueue.main.async {
+                self.showAllert(titleText: AccountRegistrationModel.title, messageText: AccountRegistrationModel.message, succeed: AccountRegistrationModel.succeed)
             }
         }
 
