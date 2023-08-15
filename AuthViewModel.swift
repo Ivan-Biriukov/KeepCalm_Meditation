@@ -1,12 +1,13 @@
 import Foundation
 import FirebaseAuth
 
-final class ViewModel {
+final class AuthViewModel {
     
-    static let shared = ViewModel()
+    static let shared = AuthViewModel()
+    
+    // MARK: - Create New User
     
     var registerStatus = Dynamic(AccountRegistrationModel(succeed: Bool(), title: "", message: ""))
-
     func registerUser(email: String, password: String, name: String) {
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             if let e = error {
@@ -17,8 +18,9 @@ final class ViewModel {
         }
     }
     
-    var loginStatus = Dynamic(LoginModel(loginSucced: Bool(), message: ""))
+    // MARK: - LogIn with existing User
     
+    var loginStatus = Dynamic(LoginModel(loginSucced: Bool(), message: ""))
     func loginUser(email: String, password: String) {
         Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
             if let e = error {
@@ -29,6 +31,8 @@ final class ViewModel {
         }
     }
     
+    // MARK: - LogOut
+    
     func logOut() {
         do {
             try Auth.auth().signOut()
@@ -38,8 +42,9 @@ final class ViewModel {
         }
     }
     
-    var userAccountDataStatus = Dynamic(UserData(userName: "", userEmail: ""))
+    // MARK: - Load current User Data
     
+    var userAccountDataStatus = Dynamic(UserData(userName: "", userEmail: ""))
     func loadUserData() {
         let user = Auth.auth().currentUser
         if let user = user {
@@ -52,6 +57,33 @@ final class ViewModel {
     }
     
     
+    // MARK: - Change Current User Account Info
+    
+    var paswordChangeStatus = Dynamic("")
+    
+    func changePassword(newPassword: String) {
+        Auth.auth().currentUser?.updatePassword(to: newPassword) { error in
+            if let e = error {
+                self.paswordChangeStatus.value = e.localizedDescription
+            } else {
+                self.paswordChangeStatus.value = ""
+            }
+        }
+    }
+    
+    var emailChangeStatus = Dynamic("")
+    var newEmailValue = Dynamic("")
+    
+    func changeEmail(newEmail: String) {
+        Auth.auth().currentUser?.updateEmail(to: newEmail) { error in
+            if let e = error {
+                self.emailChangeStatus.value = e.localizedDescription
+            } else {
+                self.emailChangeStatus.value = ""
+                self.newEmailValue.value = newEmail
+            }
+        }
+    }
     
     
 }

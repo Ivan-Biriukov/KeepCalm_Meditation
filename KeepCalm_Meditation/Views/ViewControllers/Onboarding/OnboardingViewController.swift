@@ -113,7 +113,6 @@ class OnboardingViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupConstraints()
-        self.navigationController?.navigationBar.isHidden = true
     }
     
     

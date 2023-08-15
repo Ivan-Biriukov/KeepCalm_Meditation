@@ -50,12 +50,25 @@ extension UIViewController {
         self.navigationItem.titleView = logoImage
     }
     
+    func hideNavBar() {
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
+    func hideTapBar() {
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
+    func showNavBar() {
+        self.navigationController?.navigationBar.isHidden = false
+    }
+    
+    func showTapBar() {
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
     @objc func menuButtonTaped() {
-        let menuVC = MenuViewController()
-        menuVC.transitioningDelegate = MenuViewController.shared
-        menuVC.modalPresentationStyle = .custom
-        ViewModel.shared.loadUserData()
-        present(menuVC, animated: true, completion: nil)
+        AuthViewModel.shared.loadUserData()
+        self.navigationController?.pushViewController(MenuViewController.shared, animated: true)
     }
     
 }

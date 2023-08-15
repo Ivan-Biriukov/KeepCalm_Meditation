@@ -92,6 +92,11 @@ class SignInViewController: UIViewController {
         bindViewModel()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        hideNavBar()
+        hideTapBar()
+    }
+    
     // MARK: - Buttons Methods
     
     @objc func recoverButtonPressed(_ sender: UIButton) {
@@ -103,7 +108,7 @@ class SignInViewController: UIViewController {
     
     @objc func loginPressed() {
         if let email = emailTextField.text, let password = passwordTextField.text {
-            ViewModel.shared.loginUser(email: email, password: password)
+            AuthViewModel.shared.loginUser(email: email, password: password)
         }
     }
     
@@ -127,7 +132,7 @@ class SignInViewController: UIViewController {
     }
     
     private func bindViewModel() {
-        ViewModel.shared.loginStatus.bind { LoginModel in
+        AuthViewModel.shared.loginStatus.bind { LoginModel in
             DispatchQueue.main.async {
                 self.loginStatus = (LoginModel.loginSucced, LoginModel.message)
                 if self.loginStatus.succed {

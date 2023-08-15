@@ -14,6 +14,7 @@
 		576939302A73E7E7001AF59A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5769392F2A73E7E7001AF59A /* Assets.xcassets */; };
 		576939332A73E7E7001AF59A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 576939312A73E7E7001AF59A /* LaunchScreen.storyboard */; };
 		579771E72A8B92AA00FCA1F1 /* AccountRegistrationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579771E62A8B92AA00FCA1F1 /* AccountRegistrationModel.swift */; };
+		57988AE92A8C1B610024564D /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57988AE82A8C1B610024564D /* Dynamic.swift */; };
 		579963782A7547AD00F10D30 /* ReusableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579963772A7547AD00F10D30 /* ReusableTextField.swift */; };
 		5799637A2A75495700F10D30 /* UITextField+ Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579963792A75495700F10D30 /* UITextField+ Extension.swift */; };
 		5799637C2A75516700F10D30 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5799637B2A75516700F10D30 /* SignInViewController.swift */; };
@@ -50,8 +51,7 @@
 		57C601DB2A8ABBA900F2007D /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 57C601DA2A8ABBA900F2007D /* FirebaseAuth */; };
 		57C601DD2A8ABBA900F2007D /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 57C601DC2A8ABBA900F2007D /* FirebaseFirestore */; };
 		57C601DF2A8ABCF500F2007D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 57C601DE2A8ABCF500F2007D /* GoogleService-Info.plist */; };
-		57C601E12A8ABE3E00F2007D /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C601E02A8ABE3E00F2007D /* ViewModel.swift */; };
-		57C601E32A8AC0A500F2007D /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C601E22A8AC0A500F2007D /* Dynamic.swift */; };
+		57C601E12A8ABE3E00F2007D /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C601E02A8ABE3E00F2007D /* AuthViewModel.swift */; };
 		57C6DC6D2A79498A0089F96A /* MeditationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C6DC6C2A79498A0089F96A /* MeditationViewController.swift */; };
 		57C6DC6F2A795F360089F96A /* SleepSessionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C6DC6E2A795F360089F96A /* SleepSessionsViewController.swift */; };
 		57C6DC712A7986D60089F96A /* SleepQuolityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C6DC702A7986D60089F96A /* SleepQuolityCollectionViewCell.swift */; };
@@ -68,6 +68,7 @@
 		576939322A73E7E7001AF59A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		576939342A73E7E7001AF59A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		579771E62A8B92AA00FCA1F1 /* AccountRegistrationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRegistrationModel.swift; sourceTree = "<group>"; };
+		57988AE82A8C1B610024564D /* Dynamic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = "<group>"; };
 		579963772A7547AD00F10D30 /* ReusableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableTextField.swift; sourceTree = "<group>"; };
 		579963792A75495700F10D30 /* UITextField+ Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+ Extension.swift"; sourceTree = "<group>"; };
 		5799637B2A75516700F10D30 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -100,8 +101,7 @@
 		57C27BBF2A74777F008C2350 /* UIColor+ Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+ Extension.swift"; sourceTree = "<group>"; };
 		57C27BC82A74872F008C2350 /* ReusableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableButton.swift; sourceTree = "<group>"; };
 		57C601DE2A8ABCF500F2007D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		57C601E02A8ABE3E00F2007D /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = SOURCE_ROOT; };
-		57C601E22A8AC0A500F2007D /* Dynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = SOURCE_ROOT; };
+		57C601E02A8ABE3E00F2007D /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = SOURCE_ROOT; };
 		57C6DC6C2A79498A0089F96A /* MeditationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditationViewController.swift; sourceTree = "<group>"; };
 		57C6DC6E2A795F360089F96A /* SleepSessionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepSessionsViewController.swift; sourceTree = "<group>"; };
 		57C6DC702A7986D60089F96A /* SleepQuolityCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepQuolityCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -153,6 +153,14 @@
 				57C27BAB2A746E55008C2350 /* Extensions */,
 			);
 			path = KeepCalm_Meditation;
+			sourceTree = "<group>";
+		};
+		57988AE72A8C1B370024564D /* Bindings */ = {
+			isa = PBXGroup;
+			children = (
+				57988AE82A8C1B610024564D /* Dynamic.swift */,
+			);
+			path = Bindings;
 			sourceTree = "<group>";
 		};
 		579963762A75477C00F10D30 /* TextFields */ = {
@@ -312,8 +320,8 @@
 		57C27BC32A747B69008C2350 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				57C601E02A8ABE3E00F2007D /* ViewModel.swift */,
-				57C601E22A8AC0A500F2007D /* Dynamic.swift */,
+				57C601E02A8ABE3E00F2007D /* AuthViewModel.swift */,
+				57988AE72A8C1B370024564D /* Bindings */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -468,12 +476,11 @@
 				57C27BBE2A7471AA008C2350 /* UIFont+ Extension.swift in Sources */,
 				579B27552A7851D700E277E1 /* ToolsRootViewController.swift in Sources */,
 				5769392E2A73E7E2001AF59A /* KeepCalm_Meditation.xcdatamodeld in Sources */,
-				57C601E32A8AC0A500F2007D /* Dynamic.swift in Sources */,
 				579963862A75AA5700F10D30 /* SignUpViewController.swift in Sources */,
 				57C6DC6F2A795F360089F96A /* SleepSessionsViewController.swift in Sources */,
 				579B27592A785CE300E277E1 /* ToolsElementsModel.swift in Sources */,
 				579963892A75CFCA00F10D30 /* MainViewController.swift in Sources */,
-				57C601E12A8ABE3E00F2007D /* ViewModel.swift in Sources */,
+				57C601E12A8ABE3E00F2007D /* AuthViewModel.swift in Sources */,
 				5799637A2A75495700F10D30 /* UITextField+ Extension.swift in Sources */,
 				579CE0E32A7AD1AD0084AAD6 /* MoodBoosterViewController.swift in Sources */,
 				5799637F2A755BB200F10D30 /* LoginTopStack.swift in Sources */,
@@ -481,6 +488,7 @@
 				579771E72A8B92AA00FCA1F1 /* AccountRegistrationModel.swift in Sources */,
 				57C27BC92A74872F008C2350 /* ReusableButton.swift in Sources */,
 				57BA03992A769EC9004C7FC7 /* MoodCollectionViewCell.swift in Sources */,
+				57988AE92A8C1B610024564D /* Dynamic.swift in Sources */,
 				579963782A7547AD00F10D30 /* ReusableTextField.swift in Sources */,
 				579B27522A782E7000E277E1 /* PlayerButtons.swift in Sources */,
 				576939262A73E7E2001AF59A /* SceneDelegate.swift in Sources */,

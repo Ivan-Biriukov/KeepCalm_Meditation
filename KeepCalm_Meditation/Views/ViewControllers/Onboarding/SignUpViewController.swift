@@ -96,7 +96,7 @@ class SignUpViewController: UIViewController {
     
     @objc func signInPressed(_ sender: UIButton) {
         if let email = emailField.text, let password = passwordField.text, let name = nameField.text {
-            ViewModel.shared.registerUser(email: email, password: password, name: name)
+            AuthViewModel.shared.registerUser(email: email, password: password, name: name)
         }
     }
     
@@ -127,7 +127,7 @@ class SignUpViewController: UIViewController {
     }
     
     private func bindViewModel() {
-        ViewModel.shared.registerStatus.bind { AccountRegistrationModel in
+        AuthViewModel.shared.registerStatus.bind { AccountRegistrationModel in
             DispatchQueue.main.async {
                 self.showAllert(titleText: AccountRegistrationModel.title, messageText: AccountRegistrationModel.message, succeed: AccountRegistrationModel.succeed)
             }
