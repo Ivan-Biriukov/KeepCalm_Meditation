@@ -16,7 +16,6 @@ class SignUpViewController: UIViewController {
     
     private let topStack = LoginTopStack(style: .signUp)
     
-    private let nameField = ReusableTextField(style: .userName)
     private let emailField = ReusableTextField(style: .email)
     private let passwordField = ReusableTextField(style: .password)
     
@@ -95,8 +94,8 @@ class SignUpViewController: UIViewController {
     }
     
     @objc func signInPressed(_ sender: UIButton) {
-        if let email = emailField.text, let password = passwordField.text, let name = nameField.text {
-            AuthViewModel.shared.registerUser(email: email, password: password, name: name)
+        if let email = emailField.text, let password = passwordField.text {
+            AuthViewModel.shared.registerUser(email: email, password: password)
         }
     }
     
@@ -117,7 +116,6 @@ class SignUpViewController: UIViewController {
     // MARK: - SetupUI
 
     private func setupTextFields() {
-        nameField.delegate = self
         emailField.delegate = self
         passwordField.delegate = self
     }
@@ -139,7 +137,6 @@ class SignUpViewController: UIViewController {
         view.addSubview(backgroundImage)
         view.addSubview(topStack)
         view.addSubview(fieldsStack)
-        fieldsStack.addArrangedSubview(nameField)
         fieldsStack.addArrangedSubview(emailField)
         fieldsStack.addArrangedSubview(passwordField)
         view.addSubview(bottomButtonsStack)

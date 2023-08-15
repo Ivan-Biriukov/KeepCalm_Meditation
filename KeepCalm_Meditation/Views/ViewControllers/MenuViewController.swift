@@ -134,7 +134,7 @@ class MenuViewController: UIViewController {
     
     private lazy var emailLabel : UILabel = {
         let lb = UILabel()
-        lb.font = .alegreyaSansBold16()
+        lb.font = .alegreyaSansBold20()
         lb.textAlignment = .center
         lb.textColor = .white
         lb.numberOfLines = 0
@@ -168,7 +168,7 @@ class MenuViewController: UIViewController {
         let btn = UIButton()
         btn.setTitle("Log out", for: .normal)
         btn.setTitleColor(.white, for: .normal)
-        btn.titleLabel?.font = .alegreyaSansRegular14()
+        btn.titleLabel?.font = .alegreyaSansRegular25()
         btn.addTarget(self, action: #selector(logoutTaped), for: .touchUpInside)
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
@@ -252,7 +252,6 @@ class MenuViewController: UIViewController {
     
     @objc func editEmailTaped() {
         var textField1 = UITextField()
-        let charset = CharacterSet(charactersIn: "@.")
         
         let alert = UIAlertController(title: "Change E-mail adress", message: "Please enter new email adress here. It will be automaticaly change", preferredStyle: .alert)
         
@@ -265,16 +264,6 @@ class MenuViewController: UIViewController {
             if let email = textField1.text {
                 AuthViewModel.shared.changeEmail(newEmail: email)
             }
-            
-//            if let saveNewName = textField1.text {
-//                if saveNewName == "" || saveNewName == self.emailLabel.text || saveNewName.rangeOfCharacter(from: charset) == nil {
-//                    textField1.placeholder = "Invalid Email adress"
-//                    self.present(alert, animated: true, completion: nil)
-//                    textField1.text = ""
-//                } else {
-//                    self.emailLabel.text = saveNewName
-//                }
-//            }
         }
         
         let exitAction = UIAlertAction(title: "Exit", style: .destructive)
@@ -283,7 +272,6 @@ class MenuViewController: UIViewController {
         alert.addAction(exitAction)
         
         self.present(alert, animated: true)
-        
     }
     
     @objc func resetPasswordTaped() {
@@ -309,7 +297,6 @@ class MenuViewController: UIViewController {
     
     @objc func logoutTaped() {
         AuthViewModel.shared.logOut()
-        self.dismiss(animated: true)
         navigationController?.pushViewController(SignInViewController.shared, animated: true)
         print("Logged out")
     }
@@ -405,6 +392,8 @@ extension MenuViewController : UIImagePickerControllerDelegate & UINavigationCon
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         let tempImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        let imageURL = info[UIImagePickerController.InfoKey.imageURL] as! NSURL
+        =
         userAvatarImg.image  = tempImage
         self.dismiss(animated: true, completion: nil)
     }

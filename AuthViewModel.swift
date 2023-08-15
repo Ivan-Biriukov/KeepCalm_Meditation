@@ -8,7 +8,7 @@ final class AuthViewModel {
     // MARK: - Create New User
     
     var registerStatus = Dynamic(AccountRegistrationModel(succeed: Bool(), title: "", message: ""))
-    func registerUser(email: String, password: String, name: String) {
+    func registerUser(email: String, password: String) {
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             if let e = error {
                 self.registerStatus.value = AccountRegistrationModel(succeed: false, title: "Registration failed", message: e.localizedDescription)
@@ -48,11 +48,7 @@ final class AuthViewModel {
     func loadUserData() {
         let user = Auth.auth().currentUser
         if let user = user {
-            var multiFactorString = "MultiFactor: "
-            for info in user.multiFactor.enrolledFactors {
-              multiFactorString += info.displayName ?? "[DispayName]"
-            }
-            self.userAccountDataStatus.value = UserData(userName: multiFactorString, userEmail: user.email!)
+            self.userAccountDataStatus.value = UserData(userName: user.displayName ?? "New User", userEmail: user.email!)
         }
     }
     
@@ -84,6 +80,5 @@ final class AuthViewModel {
             }
         }
     }
-    
     
 }
