@@ -46,6 +46,11 @@
 		57C27BBE2A7471AA008C2350 /* UIFont+ Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C27BBD2A7471AA008C2350 /* UIFont+ Extension.swift */; };
 		57C27BC02A74777F008C2350 /* UIColor+ Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C27BBF2A74777F008C2350 /* UIColor+ Extension.swift */; };
 		57C27BC92A74872F008C2350 /* ReusableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C27BC82A74872F008C2350 /* ReusableButton.swift */; };
+		57C601DB2A8ABBA900F2007D /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 57C601DA2A8ABBA900F2007D /* FirebaseAuth */; };
+		57C601DD2A8ABBA900F2007D /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 57C601DC2A8ABBA900F2007D /* FirebaseFirestore */; };
+		57C601DF2A8ABCF500F2007D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 57C601DE2A8ABCF500F2007D /* GoogleService-Info.plist */; };
+		57C601E12A8ABE3E00F2007D /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C601E02A8ABE3E00F2007D /* ViewModel.swift */; };
+		57C601E32A8AC0A500F2007D /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C601E22A8AC0A500F2007D /* Dynamic.swift */; };
 		57C6DC6D2A79498A0089F96A /* MeditationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C6DC6C2A79498A0089F96A /* MeditationViewController.swift */; };
 		57C6DC6F2A795F360089F96A /* SleepSessionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C6DC6E2A795F360089F96A /* SleepSessionsViewController.swift */; };
 		57C6DC712A7986D60089F96A /* SleepQuolityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C6DC702A7986D60089F96A /* SleepQuolityCollectionViewCell.swift */; };
@@ -92,6 +97,9 @@
 		57C27BBD2A7471AA008C2350 /* UIFont+ Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+ Extension.swift"; sourceTree = "<group>"; };
 		57C27BBF2A74777F008C2350 /* UIColor+ Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+ Extension.swift"; sourceTree = "<group>"; };
 		57C27BC82A74872F008C2350 /* ReusableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableButton.swift; sourceTree = "<group>"; };
+		57C601DE2A8ABCF500F2007D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		57C601E02A8ABE3E00F2007D /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = SOURCE_ROOT; };
+		57C601E22A8AC0A500F2007D /* Dynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = SOURCE_ROOT; };
 		57C6DC6C2A79498A0089F96A /* MeditationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditationViewController.swift; sourceTree = "<group>"; };
 		57C6DC6E2A795F360089F96A /* SleepSessionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepSessionsViewController.swift; sourceTree = "<group>"; };
 		57C6DC702A7986D60089F96A /* SleepQuolityCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepQuolityCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -105,6 +113,8 @@
 				57C6DC862A79C0390089F96A /* DGCharts in Frameworks */,
 				579963822A75A5ED00F10D30 /* IQKeyboardManagerSwift in Frameworks */,
 				579CE0E62A7AE1120084AAD6 /* BonsaiController in Frameworks */,
+				57C601DD2A8ABBA900F2007D /* FirebaseFirestore in Frameworks */,
+				57C601DB2A8ABBA900F2007D /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,6 +145,7 @@
 				57C27BC32A747B69008C2350 /* ViewModels */,
 				576939232A73E7E2001AF59A /* AppDelegate.swift */,
 				576939252A73E7E2001AF59A /* SceneDelegate.swift */,
+				57C601DE2A8ABCF500F2007D /* GoogleService-Info.plist */,
 				576939342A73E7E7001AF59A /* Info.plist */,
 				57C27BA72A74622A008C2350 /* Supporting Files */,
 				57C27BAB2A746E55008C2350 /* Extensions */,
@@ -298,6 +309,8 @@
 		57C27BC32A747B69008C2350 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				57C601E02A8ABE3E00F2007D /* ViewModel.swift */,
+				57C601E22A8AC0A500F2007D /* Dynamic.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -363,6 +376,8 @@
 				579963812A75A5ED00F10D30 /* IQKeyboardManagerSwift */,
 				57C6DC852A79C0390089F96A /* DGCharts */,
 				579CE0E52A7AE1120084AAD6 /* BonsaiController */,
+				57C601DA2A8ABBA900F2007D /* FirebaseAuth */,
+				57C601DC2A8ABBA900F2007D /* FirebaseFirestore */,
 			);
 			productName = KeepCalm_Meditation;
 			productReference = 576939202A73E7E2001AF59A /* KeepCalm_Meditation.app */;
@@ -396,6 +411,7 @@
 				579963802A75A5ED00F10D30 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				57C6DC842A79C0390089F96A /* XCRemoteSwiftPackageReference "DGCharts" */,
 				579CE0E42A7AE1120084AAD6 /* XCRemoteSwiftPackageReference "Bonsai" */,
+				57C601D92A8ABBA900F2007D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 576939212A73E7E2001AF59A /* Products */;
 			projectDirPath = "";
@@ -418,6 +434,7 @@
 				576939302A73E7E7001AF59A /* Assets.xcassets in Resources */,
 				57C27BBC2A74710D008C2350 /* Karla-Regular.ttf in Resources */,
 				57C27BB52A746FF3008C2350 /* AlegreyaSans-Regular.ttf in Resources */,
+				57C601DF2A8ABCF500F2007D /* GoogleService-Info.plist in Resources */,
 				57C27BB92A74706C008C2350 /* AlegreyaSans-Light.ttf in Resources */,
 				57C27BAF2A746EDF008C2350 /* Alegreya-Medium.ttf in Resources */,
 			);
@@ -448,10 +465,12 @@
 				57C27BBE2A7471AA008C2350 /* UIFont+ Extension.swift in Sources */,
 				579B27552A7851D700E277E1 /* ToolsRootViewController.swift in Sources */,
 				5769392E2A73E7E2001AF59A /* KeepCalm_Meditation.xcdatamodeld in Sources */,
+				57C601E32A8AC0A500F2007D /* Dynamic.swift in Sources */,
 				579963862A75AA5700F10D30 /* SignUpViewController.swift in Sources */,
 				57C6DC6F2A795F360089F96A /* SleepSessionsViewController.swift in Sources */,
 				579B27592A785CE300E277E1 /* ToolsElementsModel.swift in Sources */,
 				579963892A75CFCA00F10D30 /* MainViewController.swift in Sources */,
+				57C601E12A8ABE3E00F2007D /* ViewModel.swift in Sources */,
 				5799637A2A75495700F10D30 /* UITextField+ Extension.swift in Sources */,
 				579CE0E32A7AD1AD0084AAD6 /* MoodBoosterViewController.swift in Sources */,
 				5799637F2A755BB200F10D30 /* LoginTopStack.swift in Sources */,
@@ -696,6 +715,14 @@
 				minimumVersion = 7.0.2;
 			};
 		};
+		57C601D92A8ABBA900F2007D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
 		57C6DC842A79C0390089F96A /* XCRemoteSwiftPackageReference "DGCharts" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/valdperformance/DGCharts";
@@ -716,6 +743,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 579CE0E42A7AE1120084AAD6 /* XCRemoteSwiftPackageReference "Bonsai" */;
 			productName = BonsaiController;
+		};
+		57C601DA2A8ABBA900F2007D /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 57C601D92A8ABBA900F2007D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		57C601DC2A8ABBA900F2007D /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 57C601D92A8ABBA900F2007D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
 		};
 		57C6DC852A79C0390089F96A /* DGCharts */ = {
 			isa = XCSwiftPackageProductDependency;

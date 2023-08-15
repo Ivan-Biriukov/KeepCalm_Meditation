@@ -2,6 +2,9 @@ import UIKit
 
 class SignUpViewController: UIViewController {
     
+    private var registerSucseed : Bool?
+    private var registrationErrorText : String?
+    
     // MARK: - UI Elements
     
     private let backgroundImage : UIImageView = {
@@ -79,6 +82,7 @@ class SignUpViewController: UIViewController {
         hideKeyboardWhenTappedAround()
         setupTextFields()
         setupButtons()
+        bindViewModel()
     }
     
     // MARK: - Buttons Methods
@@ -92,7 +96,16 @@ class SignUpViewController: UIViewController {
     }
     
     @objc func signInPressed(_ sender: UIButton) {
-        self.navigationController?.pushViewController(CustomTabBar.createTabBar(), animated: true)
+        if let email = emailField.text, let password = passwordField.text, let name = nameField.text {
+            ViewModel.shared.registerUser(email: email, password: password, name: name)
+        }
+    }
+    
+    private func showAllert(titleText: String,messageText : String) {
+        let alert = UIAlertController(title: titleText, message: messageText, preferredStyle: .alert)
+        let action = UIAlertAction(title: "Got it", style: .default)
+        alert.addAction(action)
+        self.present(alert, animated: true)
     }
     
     // MARK: - SetupUI
@@ -105,6 +118,26 @@ class SignUpViewController: UIViewController {
     
     private func setupButtons() {
         signupButton.addTarget(self, action: #selector(signInPressed(_:)), for: .touchUpInside)
+    }
+    
+    private func bindViewModel() {
+        ViewModel.shared.registerErrorText.bind { text in
+            self.registrationErrorText = text
+            if let safeError = self.registrationErrorText {
+                DispatchQueue.main.async {
+                    self.showAllert(titleText: "error", messageText: self.registrationErrorText!)
+                }
+            }
+        }
+        ViewModel.shared.registerStatus.bind { registerStatus in
+            self.registerSucseed = registerStatus
+            if registerStatus {
+                DispatchQueue.main.async {
+                    self.showAllert(titleText: "sdaad", messageText: "dsasa")
+                }
+            }
+        }
+
     }
     
     private func addSubviews() {
