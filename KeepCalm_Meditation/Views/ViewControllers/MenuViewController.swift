@@ -233,12 +233,8 @@ class MenuViewController: UIViewController {
         
         let confirmChangesAction = UIAlertAction(title: "Save & Close", style: .default) { _ in
             if let saveNewName = textField1.text {
-                if saveNewName == "" || saveNewName == self.nameLabel.text {
-                    textField1.placeholder = "Please enter New Value"
-                    self.present(alert, animated: true, completion: nil)
-                } else {
-                    self.nameLabel.text = saveNewName
-                }
+                AuthViewModel.shared.updateUserDisplayName(name: saveNewName)
+                self.nameLabel.text = saveNewName
             }
         }
         

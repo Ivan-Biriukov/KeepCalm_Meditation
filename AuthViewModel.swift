@@ -67,6 +67,13 @@ final class AuthViewModel {
         }
     }
     
+    func updateUserDisplayName(name : String) {
+        let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+        changeRequest?.displayName = name
+        changeRequest?.commitChanges { error in
+        }
+    }
+    
     var emailChangeStatus = Dynamic("")
     var newEmailValue = Dynamic("")
     
