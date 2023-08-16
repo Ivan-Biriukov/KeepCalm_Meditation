@@ -81,4 +81,14 @@ final class AuthViewModel {
         }
     }
     
+    var userAvatarURL = Dynamic(URL(string: ""))
+    
+    func updateUserProfilePhoto(imageUrl : URL) {
+        self.userAvatarURL.value = imageUrl
+        let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+        changeRequest?.photoURL = imageUrl
+        changeRequest?.commitChanges { error in
+        }
+    }
+    
 }

@@ -1,5 +1,5 @@
 import UIKit
-
+import FirebaseAuth
 class MenuViewController: UIViewController {
     
     static var shared = MenuViewController()
@@ -382,6 +382,14 @@ class MenuViewController: UIViewController {
                 }
             }
         }
+        AuthViewModel.shared.userAvatarURL.bind { url in
+            DispatchQueue.main.async {
+                if url != nil {
+                    let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
+                    self.userAvatarImg.image = UIImage(data: data!)
+                }
+            }
+        }
     }
 }
 
@@ -391,10 +399,27 @@ extension MenuViewController : UIImagePickerControllerDelegate & UINavigationCon
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
-        let tempImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
-        let imageURL = info[UIImagePickerController.InfoKey.imageURL] as! NSURL
-        =
-        userAvatarImg.image  = tempImage
+        if let imgUrl = info[UIImagePickerController.InfoKey.imageURL] as? URL{
+                let imgName = imgUrl.lastPathComponent
+                let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first
+                let localPath = documentDirectory?.appending(imgName)
+
+                let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+                let data = image.pngData()! as NSData
+                data.write(toFile: localPath!, atomically: true)
+                //let imageData = NSData(contentsOfFile: localPath!)!
+                let photoURL = URL.init(fileURLWithPath: localPath!)//NSURL(fileURLWithPath: localPath!)
+
+            
+            AuthViewModel.shared.updateUserProfilePhoto(imageUrl: photoURL)
+           
+
+            }
+        
+//        let tempImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+//        let imageURL = info[UIImagePickerController.InfoKey.imageURL] as! NSURL
+//
+//        userAvatarImg.image  = tempImage
         self.dismiss(animated: true, completion: nil)
     }
 
