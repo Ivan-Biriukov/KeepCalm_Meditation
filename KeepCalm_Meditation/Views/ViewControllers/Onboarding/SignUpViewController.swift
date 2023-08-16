@@ -2,6 +2,8 @@ import UIKit
 
 class SignUpViewController: UIViewController {
     
+    private var currentUser = AccountRegistrationModel(succeed: Bool(), title: "", message: "")
+    
     // MARK: - UI Elements
     
     private let backgroundImage : UIImageView = {
@@ -14,7 +16,6 @@ class SignUpViewController: UIViewController {
     
     private let topStack = LoginTopStack(style: .signUp)
     
-    private let nameField = ReusableTextField(style: .userName)
     private let emailField = ReusableTextField(style: .email)
     private let passwordField = ReusableTextField(style: .password)
     
@@ -79,6 +80,7 @@ class SignUpViewController: UIViewController {
         hideKeyboardWhenTappedAround()
         setupTextFields()
         setupButtons()
+        bindViewModel()
     }
     
     // MARK: - Buttons Methods
@@ -92,13 +94,28 @@ class SignUpViewController: UIViewController {
     }
     
     @objc func signInPressed(_ sender: UIButton) {
-        self.navigationController?.pushViewController(CustomTabBar.createTabBar(), animated: true)
+        if let email = emailField.text, let password = passwordField.text {
+            AuthViewModel.shared.registerUser(email: email, password: password)
+        }
+    }
+    
+    private func showAllert(titleText: String,messageText : String, succeed : Bool) {
+        let alert = UIAlertController(title: titleText, message: messageText, preferredStyle: .alert)
+        if succeed {
+            let action = UIAlertAction(title: "Log In", style: .default) { (action) in
+                self.navigationController?.popViewController(animated: true)
+            }
+            alert.addAction(action)
+        } else {
+            let action = UIAlertAction(title: "Got it", style: .cancel)
+            alert.addAction(action)
+        }
+        self.present(alert, animated: true)
     }
     
     // MARK: - SetupUI
 
     private func setupTextFields() {
-        nameField.delegate = self
         emailField.delegate = self
         passwordField.delegate = self
     }
@@ -107,11 +124,19 @@ class SignUpViewController: UIViewController {
         signupButton.addTarget(self, action: #selector(signInPressed(_:)), for: .touchUpInside)
     }
     
+    private func bindViewModel() {
+        AuthViewModel.shared.registerStatus.bind { AccountRegistrationModel in
+            DispatchQueue.main.async {
+                self.showAllert(titleText: AccountRegistrationModel.title, messageText: AccountRegistrationModel.message, succeed: AccountRegistrationModel.succeed)
+            }
+        }
+
+    }
+    
     private func addSubviews() {
         view.addSubview(backgroundImage)
         view.addSubview(topStack)
         view.addSubview(fieldsStack)
-        fieldsStack.addArrangedSubview(nameField)
         fieldsStack.addArrangedSubview(emailField)
         fieldsStack.addArrangedSubview(passwordField)
         view.addSubview(bottomButtonsStack)

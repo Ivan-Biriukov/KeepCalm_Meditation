@@ -1,10 +1,9 @@
 import UIKit
-import BonsaiController
-
+import FirebaseAuth
 class MenuViewController: UIViewController {
     
     static var shared = MenuViewController()
-    
+        
     // MARK: - UI Elements
     
     private lazy var contentStack : UIStackView = {
@@ -20,9 +19,9 @@ class MenuViewController: UIViewController {
     private lazy var firstLaneStack : UIStackView = {
         let stack = UIStackView()
         stack.axis = .horizontal
-        stack.distribution = .equalSpacing
+        stack.distribution = .fill
         stack.alignment = .center
-        stack.spacing = 20
+        stack.spacing = 75
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
@@ -31,7 +30,7 @@ class MenuViewController: UIViewController {
         let lb = UILabel()
         lb.font = .alegreyaMedium30()
         lb.textColor = .white
-        lb.textAlignment = .center
+        lb.textAlignment = .right
         lb.text = "Profile Info"
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
@@ -135,7 +134,7 @@ class MenuViewController: UIViewController {
     
     private lazy var emailLabel : UILabel = {
         let lb = UILabel()
-        lb.font = .alegreyaSansBold16()
+        lb.font = .alegreyaSansBold20()
         lb.textAlignment = .center
         lb.textColor = .white
         lb.numberOfLines = 0
@@ -155,12 +154,12 @@ class MenuViewController: UIViewController {
         return btn
     }()
     
-    private lazy var recoverPasswordButton : UIButton = {
+    private lazy var resetPasswordButton : UIButton = {
         let btn = UIButton()
-        btn.setTitle("Recover Password", for: .normal)
+        btn.setTitle("Reset Password", for: .normal)
         btn.setTitleColor(.white, for: .normal)
-        btn.titleLabel?.font = .alegreyaSansRegular14()
-        btn.addTarget(self, action: #selector(recoverTaped), for: .touchUpInside)
+        btn.titleLabel?.font = .alegreyaSansRegular25()
+        btn.addTarget(self, action: #selector(resetPasswordTaped), for: .touchUpInside)
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
     }()
@@ -169,7 +168,7 @@ class MenuViewController: UIViewController {
         let btn = UIButton()
         btn.setTitle("Log out", for: .normal)
         btn.setTitleColor(.white, for: .normal)
-        btn.titleLabel?.font = .alegreyaSansRegular14()
+        btn.titleLabel?.font = .alegreyaSansRegular25()
         btn.addTarget(self, action: #selector(logoutTaped), for: .touchUpInside)
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
@@ -192,12 +191,24 @@ class MenuViewController: UIViewController {
         addSubviews()
         setupConstraints()
         configurePiker()
+        bindViewModel()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        hideNavBar()
+        hideTapBar()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        showNavBar()
+        showTapBar()
+    }
     // MARK: -  Buttons Methods
     
     @objc func closePressed() {
-        self.dismiss(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
     
     @objc func choosePhotoTaped() {
@@ -222,12 +233,8 @@ class MenuViewController: UIViewController {
         
         let confirmChangesAction = UIAlertAction(title: "Save & Close", style: .default) { _ in
             if let saveNewName = textField1.text {
-                if saveNewName == "" || saveNewName == self.nameLabel.text {
-                    textField1.placeholder = "Please enter New Value"
-                    self.present(alert, animated: true, completion: nil)
-                } else {
-                    self.nameLabel.text = saveNewName
-                }
+                AuthViewModel.shared.updateUserDisplayName(name: saveNewName)
+                self.nameLabel.text = saveNewName
             }
         }
         
@@ -241,7 +248,6 @@ class MenuViewController: UIViewController {
     
     @objc func editEmailTaped() {
         var textField1 = UITextField()
-        let charset = CharacterSet(charactersIn: "@.")
         
         let alert = UIAlertController(title: "Change E-mail adress", message: "Please enter new email adress here. It will be automaticaly change", preferredStyle: .alert)
         
@@ -251,14 +257,8 @@ class MenuViewController: UIViewController {
         }
         
         let confirmChangesAction = UIAlertAction(title: "Save & Close", style: .default) { _ in
-            if let saveNewName = textField1.text {
-                if saveNewName == "" || saveNewName == self.emailLabel.text || saveNewName.rangeOfCharacter(from: charset) == nil {
-                    textField1.placeholder = "Invalid Email adress"
-                    self.present(alert, animated: true, completion: nil)
-                    textField1.text = ""
-                } else {
-                    self.emailLabel.text = saveNewName
-                }
+            if let email = textField1.text {
+                AuthViewModel.shared.changeEmail(newEmail: email)
             }
         }
         
@@ -268,12 +268,34 @@ class MenuViewController: UIViewController {
         alert.addAction(exitAction)
         
         self.present(alert, animated: true)
-        
     }
     
-    @objc func recoverTaped() {}
+    @objc func resetPasswordTaped() {
+        var newPasField = UITextField()
+        
+        let alert = UIAlertController(title: "Update Password", message: "Please fill up Your old password and the new one.", preferredStyle: .alert)
     
-    @objc func logoutTaped() {}
+        alert.addTextField() { textField in
+            newPasField = textField
+            textField.placeholder = "new password"
+        }
+        
+        let confirmAction = UIAlertAction(title: "Confirm Changes", style: .destructive) { action in
+            AuthViewModel.shared.changePassword(newPassword: newPasField.text!)
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel Changing", style: .default)
+        
+        alert.addAction(confirmAction)
+        alert.addAction(cancelAction)
+        self.present(alert, animated: true)
+    }
+    
+    @objc func logoutTaped() {
+        AuthViewModel.shared.logOut()
+        navigationController?.pushViewController(SignInViewController.shared, animated: true)
+        print("Logged out")
+    }
     
     // MARK: - Configure UI
     
@@ -292,45 +314,78 @@ class MenuViewController: UIViewController {
         contentStack.addArrangedSubview(emailStack)
         emailStack.addArrangedSubview(emailLabel)
         emailStack.addArrangedSubview(editEmailButton)
-        contentStack.addArrangedSubview(recoverPasswordButton)
+        contentStack.addArrangedSubview(resetPasswordButton)
         contentStack.addArrangedSubview(logoutButton)
     }
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            contentStack.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
+            contentStack.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
             contentStack.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             contentStack.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            firstLaneStack.trailingAnchor.constraint(equalTo: contentStack.trailingAnchor)
         ])
     }
     
     private func configurePiker() {
         photoPikerView.delegate = self
     }
-}
-
-// MARK: - BonsaiController Extension
-
-extension MenuViewController: BonsaiControllerDelegate {
     
-    // return the frame of your Bonsai View Controller
-    func frameOfPresentedView(in containerViewFrame: CGRect) -> CGRect {
-        
-        switch K.DeviceSizes.currentDeviceHeight {
-        case 0...568:
-            return CGRect(origin: CGPoint(x: 0, y: 60), size: CGSize(width: (containerViewFrame.width - containerViewFrame.width / 4), height: containerViewFrame.height - 65))
-        case 569...667:
-            return CGRect(origin: CGPoint(x: 0, y: 70), size: CGSize(width: (containerViewFrame.width - containerViewFrame.width / 4), height: containerViewFrame.height - 75))
-        default:
-            return CGRect(origin: CGPoint(x: 0, y: 100), size: CGSize(width: (containerViewFrame.width - containerViewFrame.width / 4.7), height: containerViewFrame.height - 105))
+    private func bindViewModel() {
+        AuthViewModel.shared.userAccountDataStatus.bind { UserData in
+            DispatchQueue.main.async {
+                self.emailLabel.text = UserData.userEmail
+                self.nameLabel.text = UserData.userName
+            }
         }
-    }
-    
-    // return a Bonsai Controller with SlideIn or Bubble transition animator
-    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
-
-        return BonsaiController(fromDirection: .left, blurEffectStyle: .systemMaterialDark, presentedViewController: presented, delegate: self)
         
+        AuthViewModel.shared.paswordChangeStatus.bind { string in
+            DispatchQueue.main.async {
+                if string == "" {
+                    let resultAlert = UIAlertController(title: "Results", message: "Password has been succesfuly changed", preferredStyle: .alert)
+                    let action = UIAlertAction(title: "Close", style: .destructive)
+                    resultAlert.addAction(action)
+                    self.present(resultAlert, animated: true)
+                } else {
+                    let resultAlert = UIAlertController(title: "Results", message: string, preferredStyle: .alert)
+                    let action = UIAlertAction(title: "Close", style: .destructive)
+                    resultAlert.addAction(action)
+                    self.present(resultAlert, animated: true)
+                }
+            }
+        }
+        
+        AuthViewModel.shared.emailChangeStatus.bind { string in
+            var newEmailString = ""
+            
+            if string == "" {
+                AuthViewModel.shared.newEmailValue.bind { email in
+                    newEmailString = email
+                }
+                DispatchQueue.main.async {
+                    let resultAlert = UIAlertController(title: "Results", message: "Email has been succesfuly changed", preferredStyle: .alert)
+                    let action = UIAlertAction(title: "Close", style: .destructive)
+                    resultAlert.addAction(action)
+                    self.emailLabel.text = newEmailString
+                    self.present(resultAlert, animated: true)
+                }
+            } else {
+                DispatchQueue.main.async {
+                    let resultAlert = UIAlertController(title: "Error", message: string, preferredStyle: .alert)
+                    let action = UIAlertAction(title: "Close", style: .destructive)
+                    resultAlert.addAction(action)
+                    self.present(resultAlert, animated: true)
+                }
+            }
+        }
+        AuthViewModel.shared.userAvatarURL.bind { url in
+            DispatchQueue.main.async {
+                if url != nil {
+                    let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
+                    self.userAvatarImg.image = UIImage(data: data!)
+                }
+            }
+        }
     }
 }
 
@@ -340,8 +395,27 @@ extension MenuViewController : UIImagePickerControllerDelegate & UINavigationCon
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
-        let tempImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
-        userAvatarImg.image  = tempImage
+        if let imgUrl = info[UIImagePickerController.InfoKey.imageURL] as? URL{
+                let imgName = imgUrl.lastPathComponent
+                let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first
+                let localPath = documentDirectory?.appending(imgName)
+
+                let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+                let data = image.pngData()! as NSData
+                data.write(toFile: localPath!, atomically: true)
+                //let imageData = NSData(contentsOfFile: localPath!)!
+                let photoURL = URL.init(fileURLWithPath: localPath!)//NSURL(fileURLWithPath: localPath!)
+
+            
+            AuthViewModel.shared.updateUserProfilePhoto(imageUrl: photoURL)
+           
+
+            }
+        
+//        let tempImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+//        let imageURL = info[UIImagePickerController.InfoKey.imageURL] as! NSURL
+//
+//        userAvatarImg.image  = tempImage
         self.dismiss(animated: true, completion: nil)
     }
 

@@ -2,6 +2,9 @@ import UIKit
 
 class SignInViewController: UIViewController {
     
+    static let shared = SignInViewController()
+    private var loginStatus : (succed: Bool, errorText : String) = (false, "")
+    
     // MARK: - UI Elements
     
     private let backgroundImage : UIImageView = {
@@ -86,6 +89,12 @@ class SignInViewController: UIViewController {
         setupButtons()
         hideKeyboardWhenTappedAround()
         configureTextFields()
+        bindViewModel()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        hideNavBar()
+        hideTapBar()
     }
     
     // MARK: - Buttons Methods
@@ -98,7 +107,9 @@ class SignInViewController: UIViewController {
     }
     
     @objc func loginPressed() {
-        self.navigationController?.pushViewController(CustomTabBar.createTabBar(), animated: true)
+        if let email = emailTextField.text, let password = passwordTextField.text {
+            AuthViewModel.shared.loginUser(email: email, password: password)
+        }
     }
     
     @objc func signUpTaped(_ sender: UIButton) {
@@ -118,6 +129,22 @@ class SignInViewController: UIViewController {
     private func configureTextFields() {
         emailTextField.delegate = self
         passwordTextField.delegate = self
+    }
+    
+    private func bindViewModel() {
+        AuthViewModel.shared.loginStatus.bind { LoginModel in
+            DispatchQueue.main.async {
+                self.loginStatus = (LoginModel.loginSucced, LoginModel.message)
+                if self.loginStatus.succed {
+                    self.navigationController?.pushViewController(CustomTabBar.createTabBar(), animated: true)
+                } else {
+                    let alert = UIAlertController(title: "Authorization error", message: self.loginStatus.errorText, preferredStyle: .alert)
+                    let action = UIAlertAction(title: "Try again", style: .default)
+                    alert.addAction(action)
+                    self.present(alert, animated: true)
+                }
+            }
+        }
     }
     
     private func addSubviews() {

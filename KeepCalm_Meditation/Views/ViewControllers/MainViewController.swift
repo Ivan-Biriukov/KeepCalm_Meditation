@@ -38,7 +38,7 @@ class MainViewController: UIViewController {
         l.font = .alegreyaMedium30()
         l.textColor = .white
         l.textAlignment = .left
-        l.text = "Welcome back, Jhon!"
+        l.text = "Welcome back, "
         l.translatesAutoresizingMaskIntoConstraints = false
         return l
     }()
@@ -100,6 +100,7 @@ class MainViewController: UIViewController {
         setupDelegates()
         setupConstraints()
         setupCollectiuons()
+        bindAuthViewModel()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -155,6 +156,14 @@ class MainViewController: UIViewController {
             
             K.DeviceSizes.currentDeviceHeight <= 568 ?         postsCollections.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height / 3) : ((K.DeviceSizes.currentDeviceHeight <= 667) ? postsCollections.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height / 2.4) : postsCollections.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height / 2.1))
         ])
+    }
+    
+    func bindAuthViewModel() {
+        AuthViewModel.shared.userAccountDataStatus.bind { UserData in
+            DispatchQueue.main.async {
+                self.mainLabel.text = "Wellcome, \(UserData.userName)"
+            }
+        }
     }
 }
 
