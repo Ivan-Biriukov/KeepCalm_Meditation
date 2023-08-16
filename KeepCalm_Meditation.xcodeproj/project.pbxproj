@@ -33,6 +33,8 @@
 		579CE0E32A7AD1AD0084AAD6 /* MoodBoosterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579CE0E22A7AD1AD0084AAD6 /* MoodBoosterViewController.swift */; };
 		579CE0E62A7AE1120084AAD6 /* BonsaiController in Frameworks */ = {isa = PBXBuildFile; productRef = 579CE0E52A7AE1120084AAD6 /* BonsaiController */; };
 		579CE0E82A7AE13E0084AAD6 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579CE0E72A7AE13E0084AAD6 /* MenuViewController.swift */; };
+		57B605E52A8D50A7007DB781 /* QuotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B605E42A8D50A7007DB781 /* QuotesViewModel.swift */; };
+		57B605E72A8D5710007DB781 /* QuoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B605E62A8D5710007DB781 /* QuoteModel.swift */; };
 		57BA03992A769EC9004C7FC7 /* MoodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BA03982A769EC9004C7FC7 /* MoodCollectionViewCell.swift */; };
 		57BA039B2A76D85E004C7FC7 /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BA039A2A76D85E004C7FC7 /* PostCollectionViewCell.swift */; };
 		57BA039D2A76E314004C7FC7 /* UIButton+ Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BA039C2A76E314004C7FC7 /* UIButton+ Extension.swift */; };
@@ -85,6 +87,8 @@
 		579B27582A785CE300E277E1 /* ToolsElementsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsElementsModel.swift; sourceTree = "<group>"; };
 		579CE0E22A7AD1AD0084AAD6 /* MoodBoosterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodBoosterViewController.swift; sourceTree = "<group>"; };
 		579CE0E72A7AE13E0084AAD6 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		57B605E42A8D50A7007DB781 /* QuotesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesViewModel.swift; sourceTree = "<group>"; };
+		57B605E62A8D5710007DB781 /* QuoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteModel.swift; sourceTree = "<group>"; };
 		57BA03982A769EC9004C7FC7 /* MoodCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodCollectionViewCell.swift; sourceTree = "<group>"; };
 		57BA039A2A76D85E004C7FC7 /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCell.swift; sourceTree = "<group>"; };
 		57BA039C2A76E314004C7FC7 /* UIButton+ Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+ Extension.swift"; sourceTree = "<group>"; };
@@ -300,6 +304,7 @@
 				57C27BC52A747B9D008C2350 /* CoreData */,
 				579B27582A785CE300E277E1 /* ToolsElementsModel.swift */,
 				579771E62A8B92AA00FCA1F1 /* AccountRegistrationModel.swift */,
+				57B605E62A8D5710007DB781 /* QuoteModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -322,6 +327,7 @@
 			children = (
 				57C601E02A8ABE3E00F2007D /* AuthViewModel.swift */,
 				57988AE72A8C1B370024564D /* Bindings */,
+				57B605E42A8D50A7007DB781 /* QuotesViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -464,6 +470,7 @@
 				57BA03A02A770E15004C7FC7 /* CustomTabBar.swift in Sources */,
 				57BA039D2A76E314004C7FC7 /* UIButton+ Extension.swift in Sources */,
 				57C27BA92A746286008C2350 /* Constants.swift in Sources */,
+				57B605E72A8D5710007DB781 /* QuoteModel.swift in Sources */,
 				579B27572A7855A300E277E1 /* ToolsCollectionViewCell.swift in Sources */,
 				579CE0E82A7AE13E0084AAD6 /* MenuViewController.swift in Sources */,
 				576939282A73E7E2001AF59A /* OnboardingViewController.swift in Sources */,
@@ -471,6 +478,7 @@
 				57C6DC712A7986D60089F96A /* SleepQuolityCollectionViewCell.swift in Sources */,
 				57C27BC02A74777F008C2350 /* UIColor+ Extension.swift in Sources */,
 				57C6DC6D2A79498A0089F96A /* MeditationViewController.swift in Sources */,
+				57B605E52A8D50A7007DB781 /* QuotesViewModel.swift in Sources */,
 				579B27502A7800D600E277E1 /* PlayerViewController.swift in Sources */,
 				579B274E2A77F97000E277E1 /* SongsTableViewCell.swift in Sources */,
 				57C27BBE2A7471AA008C2350 /* UIFont+ Extension.swift in Sources */,

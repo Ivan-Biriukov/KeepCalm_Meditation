@@ -19,7 +19,6 @@ class MoodBoosterViewController: UIViewController {
         lb.textColor = .white
         lb.textAlignment = .center
         lb.numberOfLines = 0
-        lb.text = "dfsddfsjfdshk dshfsdhkfhi dsfghdshf dvh cxhfd cvsdfghvwe csgscg"
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
     }()
@@ -29,26 +28,14 @@ class MoodBoosterViewController: UIViewController {
         lb.font = .alegreyaSansBold16()
         lb.textColor = .systemBlue
         lb.textAlignment = .left
-        lb.text = "dfsdfsdf dfsfds"
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
     }()
     
-    private lazy var pervoiseButton : UIButton = {
-        let btn = UIButton()
-        btn.setImage(UIImage(systemName: "chevron.backward"), for: .normal)
-        btn.tintColor = .white
-        btn.heightAnchor.constraint(equalToConstant: 80).isActive = true
-        btn.widthAnchor.constraint(equalToConstant: 80).isActive = true
-        btn.contentMode = .scaleToFill
-        btn.addTarget(self, action: #selector(pervoicePressed), for: .touchUpInside)
-        btn.translatesAutoresizingMaskIntoConstraints = false
-        return btn
-    }()
     
     private lazy var nextButton : UIButton = {
         let btn = UIButton()
-        btn.setImage(UIImage(systemName: "chevron.right"), for: .normal)
+        btn.setTitle("Next", for: .normal)
         btn.tintColor = .white
         btn.heightAnchor.constraint(equalToConstant: 80).isActive = true
         btn.widthAnchor.constraint(equalToConstant: 80).isActive = true
@@ -76,6 +63,12 @@ class MoodBoosterViewController: UIViewController {
         view.backgroundColor = .mainBackgroundColor()
         addSubviews()
         setupConstraints()
+        bindQouteViewModel()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        QuotesViewModel.shared.fetchQoute()
     }
     
     
@@ -83,7 +76,9 @@ class MoodBoosterViewController: UIViewController {
     
     @objc func pervoicePressed() {}
     
-    @objc func nextPressed() {}
+    @objc func nextPressed() {
+        QuotesViewModel.shared.fetchQoute()
+    }
     
     
     // MARK: - Setup UI
@@ -93,8 +88,8 @@ class MoodBoosterViewController: UIViewController {
         contentStackView.addArrangedSubview(noticeLabel)
         contentStackView.addArrangedSubview(authorLabel)
         contentStackView.addArrangedSubview(buttonStack)
-        buttonStack.addArrangedSubview(pervoiseButton)
-        buttonStack.addArrangedSubview(nextButton)
+        view.addSubview(nextButton)
+      //  buttonStack.addArrangedSubview(nextButton)
     }
     
     private func setupConstraints() {
@@ -102,7 +97,18 @@ class MoodBoosterViewController: UIViewController {
             contentStackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             contentStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
             contentStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
+            nextButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            nextButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -200)
         ])
+    }
+    
+    func bindQouteViewModel() {
+        QuotesViewModel.shared.currentQoute.bind { data in
+            DispatchQueue.main.async {
+                self.noticeLabel.text = data.quoteText
+                self.authorLabel.text = data.quoteAuthor
+            }
+        }
     }
 
 }
