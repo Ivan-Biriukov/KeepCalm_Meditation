@@ -6,13 +6,17 @@ class PlayerViewController: UIViewController, PlayerButtonsDelegate {
     private let pictureURL : String
     private let songName : String
     private let songAuthor : String
-    private let songDuration : String
+    private let songDuration : Float
     private let songURL : String
     private let shuffleEnabled : Bool
+
+    private var secondsPassed : Float = 0.0
     
+
     // MARK: - UI Elements
     
-    var player : AVPlayer?
+    private var player : AVPlayer?
+    private var timer = Timer()
     
     private let contentStack : UIStackView = {
         let stack = UIStackView()
@@ -66,7 +70,7 @@ class PlayerViewController: UIViewController, PlayerButtonsDelegate {
     
     private let songProgress : UIProgressView = {
         let pg = UIProgressView()
-        pg.progress = 0.1
+        pg.progress = 0
         pg.progressViewStyle = .bar
         pg.trackTintColor = .lightGray
         pg.progressTintColor = .darkGray
@@ -102,6 +106,7 @@ class PlayerViewController: UIViewController, PlayerButtonsDelegate {
         loadSongImage()
         loadRadio(radioURL: songURL)
         chekForShuffle()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -112,7 +117,7 @@ class PlayerViewController: UIViewController, PlayerButtonsDelegate {
         self.pictureURL = pictureURL
         self.songName = songName
         self.songAuthor = songAuthor
-        self.songDuration = songDuration
+        self.songDuration = Float(songDuration)! * 60.0
         self.songURL = songURL
         self.shuffleEnabled = shuffleEnabled
         super.init(nibName: nil, bundle: nil)
@@ -135,11 +140,15 @@ class PlayerViewController: UIViewController, PlayerButtonsDelegate {
             }
             let time2: CMTime = CMTimeMake(value: Int64(newTime * 1000 as Float64), timescale: 1000)
             player!.seek(to: time2, toleranceBefore: CMTime.zero, toleranceAfter: CMTime.zero)
+            
+            
         case 2:
             if player?.timeControlStatus == .playing {
                 player?.pause()
+                timer.invalidate()
             } else {
                 player?.play()
+                self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
             }
         case 3:
             guard let duration  = player?.currentItem?.duration else {return}
@@ -167,6 +176,12 @@ class PlayerViewController: UIViewController, PlayerButtonsDelegate {
         }
     }
     
+    
+    @objc private func updateElapsedTime() {
+        if player?.timeControlStatus == .playing {
+            
+        }
+    }
     // MARK: - Configure UI
     
     private func addButtonsTarget() {
@@ -236,10 +251,6 @@ class PlayerViewController: UIViewController, PlayerButtonsDelegate {
         }
     }
     
-    private func fetchSongProgress() {
-        
-    }
-    
     // MARK: - Player Methods
     
     func loadRadio(radioURL: String) {
@@ -248,4 +259,16 @@ class PlayerViewController: UIViewController, PlayerButtonsDelegate {
             player = AVPlayer.init(playerItem: playerItem)
         }
 
+    
+    @objc func updateTimer() {
+        if secondsPassed != songDuration {
+            DispatchQueue.main.async {
+                self.songProgress.setProgress((self.secondsPassed / self.songDuration), animated: true)
+            }
+            secondsPassed += 1.0
+        } else {
+            secondsPassed = 0
+        }
+    }
+    
 }
