@@ -2,9 +2,22 @@ import UIKit
 
 class SongsTableViewCell: UITableViewCell {
     
+    var cellData : MusicDataModel? {
+        didSet {
+            self.songNameLabel.text = cellData?.songName
+            self.songListinerCountLabel.text = cellData?.author
+            self.songMinDurationLabel.text = cellData?.duration
+            self.pictureUrlString = cellData!.pictureStringUrl
+        }
+    }
+    
+    private var pictureUrlString : String = ""
+    
     private let songImage : UIImageView = {
         let img = UIImageView()
         img.image = UIImage(named: K.ChooseSongVc.song1Img)
+        img.layer.cornerRadius = 20
+        img.clipsToBounds = true
         img.translatesAutoresizingMaskIntoConstraints = false
         return img
     }()
@@ -52,7 +65,8 @@ class SongsTableViewCell: UITableViewCell {
     private let contentStack : UIStackView = {
         let stack = UIStackView()
         stack.axis = .horizontal
-        stack.distribution = .equalSpacing
+        stack.distribution = .fill
+        stack.spacing = 10
         stack.alignment = .center
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
@@ -83,5 +97,19 @@ class SongsTableViewCell: UITableViewCell {
             contentStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15),
             contentStack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10)
         ])
+    }
+    
+    func loadImagwFromURL(urlString: String) {
+        if let url = URL(string: urlString) {
+            let task = URLSession.shared.dataTask(with: url) { data, response, error in
+                guard let data = data, error == nil else { return }
+                
+                DispatchQueue.main.async {
+                    self.songImage.image = UIImage(data: data)
+                }
+            }
+
+            task.resume()
+        }
     }
 }

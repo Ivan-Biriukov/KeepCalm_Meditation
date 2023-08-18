@@ -58,6 +58,9 @@
 		57C6DC6F2A795F360089F96A /* SleepSessionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C6DC6E2A795F360089F96A /* SleepSessionsViewController.swift */; };
 		57C6DC712A7986D60089F96A /* SleepQuolityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C6DC702A7986D60089F96A /* SleepQuolityCollectionViewCell.swift */; };
 		57C6DC862A79C0390089F96A /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 57C6DC852A79C0390089F96A /* DGCharts */; };
+		57CCBD0E2A8EC4FE008B6C45 /* MusicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CCBD0D2A8EC4FE008B6C45 /* MusicViewModel.swift */; };
+		57CCBD102A8EDAE5008B6C45 /* MusicDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CCBD0F2A8EDAE5008B6C45 /* MusicDataModel.swift */; };
+		57CCBD122A8EDCDB008B6C45 /* MusicModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CCBD112A8EDCDB008B6C45 /* MusicModelManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -109,6 +112,9 @@
 		57C6DC6C2A79498A0089F96A /* MeditationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditationViewController.swift; sourceTree = "<group>"; };
 		57C6DC6E2A795F360089F96A /* SleepSessionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepSessionsViewController.swift; sourceTree = "<group>"; };
 		57C6DC702A7986D60089F96A /* SleepQuolityCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepQuolityCollectionViewCell.swift; sourceTree = "<group>"; };
+		57CCBD0D2A8EC4FE008B6C45 /* MusicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicViewModel.swift; sourceTree = "<group>"; };
+		57CCBD0F2A8EDAE5008B6C45 /* MusicDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicDataModel.swift; sourceTree = "<group>"; };
+		57CCBD112A8EDCDB008B6C45 /* MusicModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicModelManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -305,6 +311,8 @@
 				579B27582A785CE300E277E1 /* ToolsElementsModel.swift */,
 				579771E62A8B92AA00FCA1F1 /* AccountRegistrationModel.swift */,
 				57B605E62A8D5710007DB781 /* QuoteModel.swift */,
+				57CCBD0F2A8EDAE5008B6C45 /* MusicDataModel.swift */,
+				57CCBD112A8EDCDB008B6C45 /* MusicModelManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -328,6 +336,7 @@
 				57C601E02A8ABE3E00F2007D /* AuthViewModel.swift */,
 				57988AE72A8C1B370024564D /* Bindings */,
 				57B605E42A8D50A7007DB781 /* QuotesViewModel.swift */,
+				57CCBD0D2A8EC4FE008B6C45 /* MusicViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -467,6 +476,7 @@
 				579B274A2A77E8D100E277E1 /* SoundsRootViewController.swift in Sources */,
 				5799637C2A75516700F10D30 /* SignInViewController.swift in Sources */,
 				579963842A75A82B00F10D30 /* UIViewController+ Extension.swift in Sources */,
+				57CCBD122A8EDCDB008B6C45 /* MusicModelManager.swift in Sources */,
 				57BA03A02A770E15004C7FC7 /* CustomTabBar.swift in Sources */,
 				57BA039D2A76E314004C7FC7 /* UIButton+ Extension.swift in Sources */,
 				57C27BA92A746286008C2350 /* Constants.swift in Sources */,
@@ -498,6 +508,8 @@
 				57BA03992A769EC9004C7FC7 /* MoodCollectionViewCell.swift in Sources */,
 				57988AE92A8C1B610024564D /* Dynamic.swift in Sources */,
 				579963782A7547AD00F10D30 /* ReusableTextField.swift in Sources */,
+				57CCBD0E2A8EC4FE008B6C45 /* MusicViewModel.swift in Sources */,
+				57CCBD102A8EDAE5008B6C45 /* MusicDataModel.swift in Sources */,
 				579B27522A782E7000E277E1 /* PlayerButtons.swift in Sources */,
 				576939262A73E7E2001AF59A /* SceneDelegate.swift in Sources */,
 			);

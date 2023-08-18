@@ -1,8 +1,12 @@
 import UIKit
+import AVFoundation
 
 class PlayerViewController: UIViewController, PlayerButtonsDelegate {
     
     // MARK: - UI Elements
+    
+    var player : AVPlayer?
+
     
     private let contentStack : UIStackView = {
         let stack = UIStackView()
@@ -87,12 +91,20 @@ class PlayerViewController: UIViewController, PlayerButtonsDelegate {
         addSubviews()
         setupUI()
         addButtonsTarget()
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
     }
     
     
     // MARK: - Buttons Methods
     
     @objc func playerButtonPressed(_ sender: UIButton) {
+ 
+
     }
     
     
@@ -134,4 +146,14 @@ class PlayerViewController: UIViewController, PlayerButtonsDelegate {
             actionsButtonsStack.trailingAnchor.constraint(equalTo: contentStack.trailingAnchor),
         ])
     }
+    
+    // MARK: - Player Methods
+    
+    func loadRadio(radioURL: String) {
+            guard let url = URL.init(string: radioURL) else { return }
+            let playerItem = AVPlayerItem.init(url: url)
+            player = AVPlayer.init(playerItem: playerItem)
+            player?.play()
+        }
+
 }

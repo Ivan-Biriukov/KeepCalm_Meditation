@@ -147,11 +147,14 @@ class SoundsRootViewController: UIViewController {
 extension SoundsRootViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return MusicModelManager.shared.musicDataArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SongsCell", for: indexPath) as! SongsTableViewCell
+        let currentCell = MusicModelManager.shared.musicDataArray[indexPath.row]
+        cell.cellData = currentCell
+        cell.loadImagwFromURL(urlString: currentCell.pictureStringUrl)
         return cell
     }
     
@@ -162,3 +165,4 @@ extension SoundsRootViewController: UITableViewDelegate, UITableViewDataSource {
         present(player, animated: true)
     }
 }
+
