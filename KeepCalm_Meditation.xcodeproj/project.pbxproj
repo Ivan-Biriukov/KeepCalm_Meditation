@@ -61,6 +61,7 @@
 		57CCBD0E2A8EC4FE008B6C45 /* MusicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CCBD0D2A8EC4FE008B6C45 /* MusicViewModel.swift */; };
 		57CCBD102A8EDAE5008B6C45 /* MusicDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CCBD0F2A8EDAE5008B6C45 /* MusicDataModel.swift */; };
 		57CCBD122A8EDCDB008B6C45 /* MusicModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CCBD112A8EDCDB008B6C45 /* MusicModelManager.swift */; };
+		57CCBD162A8EEC53008B6C45 /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CCBD152A8EEC53008B6C45 /* PlayerViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -115,6 +116,7 @@
 		57CCBD0D2A8EC4FE008B6C45 /* MusicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicViewModel.swift; sourceTree = "<group>"; };
 		57CCBD0F2A8EDAE5008B6C45 /* MusicDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicDataModel.swift; sourceTree = "<group>"; };
 		57CCBD112A8EDCDB008B6C45 /* MusicModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicModelManager.swift; sourceTree = "<group>"; };
+		57CCBD152A8EEC53008B6C45 /* PlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -337,6 +339,7 @@
 				57988AE72A8C1B370024564D /* Bindings */,
 				57B605E42A8D50A7007DB781 /* QuotesViewModel.swift */,
 				57CCBD0D2A8EC4FE008B6C45 /* MusicViewModel.swift */,
+				57CCBD152A8EEC53008B6C45 /* PlayerViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -474,6 +477,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				579B274A2A77E8D100E277E1 /* SoundsRootViewController.swift in Sources */,
+				57CCBD162A8EEC53008B6C45 /* PlayerViewModel.swift in Sources */,
 				5799637C2A75516700F10D30 /* SignInViewController.swift in Sources */,
 				579963842A75A82B00F10D30 /* UIViewController+ Extension.swift in Sources */,
 				57CCBD122A8EDCDB008B6C45 /* MusicModelManager.swift in Sources */,

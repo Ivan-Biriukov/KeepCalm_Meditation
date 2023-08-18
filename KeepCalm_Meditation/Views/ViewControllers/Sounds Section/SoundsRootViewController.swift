@@ -89,9 +89,9 @@ class SoundsRootViewController: UIViewController {
         sender.alpha = 0.5
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             sender.alpha = 1
-            let player = PlayerViewController()
-            player.modalPresentationStyle = .formSheet
-            self.present(player, animated: true)
+//            let player = PlayerViewController()
+//            player.modalPresentationStyle = .formSheet
+//            self.present(player, animated: true)
         }
     }
 
@@ -160,7 +160,9 @@ extension SoundsRootViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let player = PlayerViewController()
+        let currentData = MusicModelManager.shared.musicDataArray[indexPath.row]
+        
+        let player = PlayerViewController(pictureURL: currentData.pictureStringUrl, songName: currentData.songName, songAuthor: currentData.author, songDuration: currentData.duration, songURL: currentData.musicStringUrl, shuffleEnabled: false)
         player.modalPresentationStyle = .formSheet
         present(player, animated: true)
     }
