@@ -71,4 +71,7 @@ extension UIViewController {
         self.navigationController?.pushViewController(MenuViewController.shared, animated: true)
     }
     
+    func isKeyPresentInUserDefaults(key: String) -> Bool {
+        return UserDefaults.standard.object(forKey: key) != nil
+    }
 }

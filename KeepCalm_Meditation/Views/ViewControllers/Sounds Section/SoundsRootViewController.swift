@@ -3,6 +3,7 @@ import UIKit
 class SoundsRootViewController: UIViewController {
 
     // MARK: - UI Elements
+    
     private let titleBubleView : UIView = {
         let v = UIView()
         v.layer.cornerRadius = 20
@@ -74,6 +75,7 @@ class SoundsRootViewController: UIViewController {
         setupConstraints()
         configureNavBar()
         configureTableView()
+        chekForANillValueForUD()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -89,11 +91,12 @@ class SoundsRootViewController: UIViewController {
         sender.alpha = 0.5
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             sender.alpha = 1
-//            let player = PlayerViewController()
-//            player.modalPresentationStyle = .formSheet
-//            self.present(player, animated: true)
+            let player = ChartListViewController()
+            player.modalPresentationStyle = .formSheet
+            self.present(player, animated: true)
         }
     }
+  
 
     // MARK: - Configure UI
     
@@ -139,6 +142,12 @@ class SoundsRootViewController: UIViewController {
             songsTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             K.DeviceSizes.currentDeviceHeight <= 568 ? songsTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50) : ((K.DeviceSizes.currentDeviceHeight <= 667) ? songsTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -60) : songsTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -80))
         ])
+    }
+    
+    func chekForANillValueForUD() {
+        if isKeyPresentInUserDefaults(key: "currentTrackNumber") == false {
+            UserDefaults.standard.set(0, forKey: "currentTrackNumber")
+        }
     }
 }
 

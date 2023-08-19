@@ -33,6 +33,7 @@
 		579CE0E32A7AD1AD0084AAD6 /* MoodBoosterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579CE0E22A7AD1AD0084AAD6 /* MoodBoosterViewController.swift */; };
 		579CE0E62A7AE1120084AAD6 /* BonsaiController in Frameworks */ = {isa = PBXBuildFile; productRef = 579CE0E52A7AE1120084AAD6 /* BonsaiController */; };
 		579CE0E82A7AE13E0084AAD6 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579CE0E72A7AE13E0084AAD6 /* MenuViewController.swift */; };
+		579DBC1E2A8FE26000D5185C /* ChartListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579DBC1D2A8FE26000D5185C /* ChartListViewController.swift */; };
 		57B605E52A8D50A7007DB781 /* QuotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B605E42A8D50A7007DB781 /* QuotesViewModel.swift */; };
 		57B605E72A8D5710007DB781 /* QuoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B605E62A8D5710007DB781 /* QuoteModel.swift */; };
 		57BA03992A769EC9004C7FC7 /* MoodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BA03982A769EC9004C7FC7 /* MoodCollectionViewCell.swift */; };
@@ -91,6 +92,7 @@
 		579B27582A785CE300E277E1 /* ToolsElementsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsElementsModel.swift; sourceTree = "<group>"; };
 		579CE0E22A7AD1AD0084AAD6 /* MoodBoosterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodBoosterViewController.swift; sourceTree = "<group>"; };
 		579CE0E72A7AE13E0084AAD6 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		579DBC1D2A8FE26000D5185C /* ChartListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartListViewController.swift; sourceTree = "<group>"; };
 		57B605E42A8D50A7007DB781 /* QuotesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesViewModel.swift; sourceTree = "<group>"; };
 		57B605E62A8D5710007DB781 /* QuoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteModel.swift; sourceTree = "<group>"; };
 		57BA03982A769EC9004C7FC7 /* MoodCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 			children = (
 				579B27492A77E8D100E277E1 /* SoundsRootViewController.swift */,
 				579B274F2A7800D600E277E1 /* PlayerViewController.swift */,
+				579DBC1D2A8FE26000D5185C /* ChartListViewController.swift */,
 			);
 			path = "Sounds Section";
 			sourceTree = "<group>";
@@ -484,6 +487,7 @@
 				57BA03A02A770E15004C7FC7 /* CustomTabBar.swift in Sources */,
 				57BA039D2A76E314004C7FC7 /* UIButton+ Extension.swift in Sources */,
 				57C27BA92A746286008C2350 /* Constants.swift in Sources */,
+				579DBC1E2A8FE26000D5185C /* ChartListViewController.swift in Sources */,
 				57B605E72A8D5710007DB781 /* QuoteModel.swift in Sources */,
 				579B27572A7855A300E277E1 /* ToolsCollectionViewCell.swift in Sources */,
 				579CE0E82A7AE13E0084AAD6 /* MenuViewController.swift in Sources */,
