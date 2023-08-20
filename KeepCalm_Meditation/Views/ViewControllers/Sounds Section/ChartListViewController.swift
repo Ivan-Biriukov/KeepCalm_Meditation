@@ -3,17 +3,17 @@ import AVFoundation
 
 class ChartListViewController: UIViewController {
     
-    //private var player : AVPlayer?
-    private var player : AVQueuePlayer?
+    private var player : AVPlayer?
     
-    private var currentSongIndexPath : Int = 0
+    private var currentTrack : Int = 0
     
     private var loopedAudioEnabled : Bool = false
     private var shuffledEnabled : Bool = false
     private var isPlayerPlaying : Bool = false
     
     private var songLists : [AVPlayerItem] = []
-    private var songListsForBackwardRemote : [AVPlayerItem] = []
+    
+   
     
     // MARK: - UI Elements
     
@@ -60,12 +60,14 @@ class ChartListViewController: UIViewController {
         setupTableView()
         addButtonsTargets()
         loadTracksList()
+        print(songLists.count)
     }
     
     // MARK: -  Buttons Methods
     
     @objc private func playerButtonPressed(_ sender: UIButton) {
         switch sender.tag {
+            
         case 5:  // randome
             shuffledEnabled = !shuffledEnabled
             if shuffledEnabled {
@@ -75,38 +77,23 @@ class ChartListViewController: UIViewController {
             }
 
         case 6: // backward
-            if currentSongIndexPath > 0 {
-                player?.pause()
-                currentSongIndexPath -= 1
-                loadTracksFromIndex(startIndex: currentSongIndexPath)
-                chartTableView.selectRow(at: IndexPath.init(row: currentSongIndexPath, section: 0), animated: true, scrollPosition: .top)
-                
-                player?.play()
-            } else {
-                player?.pause()
-                currentSongIndexPath = 0
-                loadTracksFromIndex(startIndex: currentSongIndexPath)
-            }
+            previousTrack()
+            chartTableView.selectRow(at: IndexPath.init(row: currentTrack, section: 0), animated: true, scrollPosition: .top)
+            
         case 7: // play pause
             isPlayerPlaying = !isPlayerPlaying
             if isPlayerPlaying {
                 playPauseButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
-                player?.play()
-                
             } else {
                 playPauseButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
                 player?.pause()
             }
+            playPuse()
             
         case 8:  // forward
-            if currentSongIndexPath < MusicModelManager.shared.musicDataArray.count - 1 {
-                currentSongIndexPath += 1
-                chartTableView.selectRow(at: IndexPath.init(row: currentSongIndexPath, section: 0), animated: true, scrollPosition: .top)
-                player?.advanceToNextItem()
-            } else {
-                currentSongIndexPath = 0
-                chartTableView.selectRow(at: IndexPath.init(row: currentSongIndexPath, section: 0), animated: true, scrollPosition: .top)
-            }
+            nextTrack()
+            chartTableView.selectRow(at: IndexPath.init(row: currentTrack, section: 0), animated: true, scrollPosition: .top)
+
         case 9: // repeat one
             loopedAudioEnabled = !loopedAudioEnabled
             if loopedAudioEnabled {
@@ -122,16 +109,42 @@ class ChartListViewController: UIViewController {
     
     // MARK: - Player Work Methods
     
-    func loadTracksList() {
+    private func loadTracksList() {
         for songUrl in MusicModelManager.shared.musicDataArray {
             let url = URL(string: songUrl.musicStringUrl)
             self.songLists.append(AVPlayerItem(url: url!))
         }
-        player = AVQueuePlayer(items: songLists)
+        player = AVPlayer()
     }
     
-    func loadTracksFromIndex(startIndex: Int) {
-        self.songListsForBackwardRemote = Array(self.songLists[currentSongIndexPath...songLists.count-1])
+   private func previousTrack() {
+        if currentTrack - 1 < 0 {
+            currentTrack = (songLists.count - 1) < 0 ? 0 : (songLists.count - 1)
+        } else {
+            currentTrack -= 1
+        }
+        playTrack()
+       print(currentTrack)
+    }
+    
+    private func nextTrack() {
+        if currentTrack + 1 > songLists.count {
+            currentTrack = 0
+        } else {
+            currentTrack += 1;
+        }
+        playTrack()
+    }
+    
+    private func playTrack() {
+        if songLists.count > 0 {
+            player?.replaceCurrentItem(with: songLists[currentTrack])
+            player?.play()
+        }
+    }
+    
+    private func playPuse() {
+        isPlayerPlaying == true ? player?.play() : player?.pause()
     }
     
     
@@ -184,7 +197,6 @@ class ChartListViewController: UIViewController {
                 .constraint(equalTo: view.trailingAnchor, constant: -20),
             playerButtonsStack.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40),
         ])
-        
     }
 }
 
@@ -206,10 +218,11 @@ extension ChartListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.currentSongIndexPath = indexPath.row
+        self.currentTrack = indexPath.row
         tableView.scrollToRow(at: indexPath, at: .top, animated: true)
         player?.pause()
-        loadTracksFromIndex(startIndex: currentSongIndexPath)
+        player?.replaceCurrentItem(with: songLists[currentTrack])
+        player?.play()
     }
     
     
