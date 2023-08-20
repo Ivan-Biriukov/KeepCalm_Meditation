@@ -60,7 +60,28 @@ class ChartListViewController: UIViewController {
         setupTableView()
         addButtonsTargets()
         loadTracksList()
-        print(songLists.count)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(fileComplete),
+            name: NSNotification.Name.AVPlayerItemDidPlayToEndTime,
+            object: nil
+        )
+    }
+    
+    @objc func fileComplete() {
+        if loopedAudioEnabled {
+            player?.play()
+        } else {
+            if currentTrack + 1 < songLists.count {
+                currentTrack += 1
+                player?.replaceCurrentItem(with: songLists[currentTrack])
+                player?.play()
+            } else {
+                currentTrack = 0
+                player?.replaceCurrentItem(with: songLists[currentTrack])
+                player?.pause()
+            }
+        }
     }
     
     // MARK: -  Buttons Methods
@@ -79,26 +100,25 @@ class ChartListViewController: UIViewController {
         case 6: // backward
             previousTrack()
             chartTableView.selectRow(at: IndexPath.init(row: currentTrack, section: 0), animated: true, scrollPosition: .top)
+            isPlayerPlaying = true
+            updatePlayButtonUI(isPlayingNow: isPlayerPlaying)
             
         case 7: // play pause
             isPlayerPlaying = !isPlayerPlaying
-            if isPlayerPlaying {
-                playPauseButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
-            } else {
-                playPauseButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
-                player?.pause()
-            }
-            playPuse()
+            updatePlayButtonUI(isPlayingNow: isPlayerPlaying)
+
             
         case 8:  // forward
             nextTrack()
             chartTableView.selectRow(at: IndexPath.init(row: currentTrack, section: 0), animated: true, scrollPosition: .top)
+            isPlayerPlaying = true
+            updatePlayButtonUI(isPlayingNow: isPlayerPlaying)
 
         case 9: // repeat one
             loopedAudioEnabled = !loopedAudioEnabled
             if loopedAudioEnabled {
                 reverseButton.tintColor = .systemGreen
-                
+                restartAudio()
             } else {
                 reverseButton.tintColor = .white
             }
@@ -149,9 +169,7 @@ class ChartListViewController: UIViewController {
     
     
     @objc private func restartAudio() {
-        player?.currentItem?.seek(to: CMTime.zero, completionHandler: { _ in
-            self.player?.play()
-        })
+        
     }
     
     // MARK: - Configure UI
@@ -170,6 +188,15 @@ class ChartListViewController: UIViewController {
             button.tag = tagValue
             tagValue += 1
         }
+    }
+    
+    private func updatePlayButtonUI(isPlayingNow: Bool) {
+        if isPlayingNow {
+            playPauseButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
+        } else {
+            playPauseButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
+        }
+        playPuse()
     }
     
     private func addSubviews() {
@@ -222,8 +249,7 @@ extension ChartListViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.scrollToRow(at: indexPath, at: .top, animated: true)
         player?.pause()
         player?.replaceCurrentItem(with: songLists[currentTrack])
-        player?.play()
+        isPlayerPlaying = true
+        updatePlayButtonUI(isPlayingNow: isPlayerPlaying)
     }
-    
-    
 }
