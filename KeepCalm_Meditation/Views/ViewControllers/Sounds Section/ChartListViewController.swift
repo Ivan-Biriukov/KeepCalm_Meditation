@@ -9,11 +9,11 @@ class ChartListViewController: UIViewController {
     
     private var loopedAudioEnabled : Bool = false
     private var shuffledEnabled : Bool = false
+    private var countsForShafledPlay = [0, 1, 2, 3, 4, 5, 6, 7, 8 , 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
+
     private var isPlayerPlaying : Bool = false
     
     private var songLists : [AVPlayerItem] = []
-    
-   
     
     // MARK: - UI Elements
     
@@ -68,22 +68,6 @@ class ChartListViewController: UIViewController {
         )
     }
     
-    @objc func fileComplete() {
-        if loopedAudioEnabled {
-            player?.play()
-        } else {
-            if currentTrack + 1 < songLists.count {
-                currentTrack += 1
-                player?.replaceCurrentItem(with: songLists[currentTrack])
-                player?.play()
-            } else {
-                currentTrack = 0
-                player?.replaceCurrentItem(with: songLists[currentTrack])
-                player?.pause()
-            }
-        }
-    }
-    
     // MARK: -  Buttons Methods
     
     @objc private func playerButtonPressed(_ sender: UIButton) {
@@ -118,7 +102,6 @@ class ChartListViewController: UIViewController {
             loopedAudioEnabled = !loopedAudioEnabled
             if loopedAudioEnabled {
                 reverseButton.tintColor = .systemGreen
-                restartAudio()
             } else {
                 reverseButton.tintColor = .white
             }
@@ -163,13 +146,38 @@ class ChartListViewController: UIViewController {
         }
     }
     
+    private func playRandomTrack() {
+        countsForShafledPlay.shuffle()
+        let firstAfterShafle = countsForShafledPlay.first!
+        chartTableView.selectRow(at: IndexPath.init(row: firstAfterShafle, section: 0), animated: true, scrollPosition: .top)
+        
+        player?.replaceCurrentItem(with: songLists[firstAfterShafle])
+        player?.play()
+        songLists.removeFirst()
+    }
+    
     private func playPuse() {
         isPlayerPlaying == true ? player?.play() : player?.pause()
     }
     
-    
-    @objc private func restartAudio() {
-        
+    @objc func fileComplete() {
+        if loopedAudioEnabled {
+            
+//            player?.replaceCurrentItem(with: songLists[currentTrack])
+//            player?.play()
+        } else {
+            if currentTrack + 1 < songLists.count {
+                currentTrack += 1
+                chartTableView.selectRow(at: IndexPath.init(row: currentTrack, section: 0), animated: true, scrollPosition: .top)
+                player?.replaceCurrentItem(with: songLists[currentTrack])
+                player?.play()
+            } else {
+                currentTrack = 0
+                chartTableView.selectRow(at: IndexPath.init(row: currentTrack, section: 0), animated: true, scrollPosition: .top)
+                player?.replaceCurrentItem(with: songLists[currentTrack])
+                player?.pause()
+            }
+        }
     }
     
     // MARK: - Configure UI
