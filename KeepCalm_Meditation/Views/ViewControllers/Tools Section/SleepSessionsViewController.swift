@@ -7,6 +7,12 @@ class SleepSessionsViewController: UIViewController {
         CGSize(width: view.frame.width, height: view.frame.height)
     }
     
+    private var cellData : [SleepInfoCollectionViewDataModel] = [
+        .init(imageStringSystemName: "moon.zzz", valueLabelText: "Unknow", titleLabelText: "Sleep"),
+        .init(imageStringSystemName: "bed.double", valueLabelText: "Unknow", titleLabelText: "Deep"),
+        .init(imageStringSystemName: "star.fill", valueLabelText: "Unknow", titleLabelText: "Quality")
+    ]
+    
     // MARK: - UI Elements
     
     private lazy var scrollView : UIScrollView = {
@@ -120,6 +126,7 @@ class SleepSessionsViewController: UIViewController {
         btn.layer.cornerRadius = 10
         btn.heightAnchor.constraint(equalToConstant: 30).isActive = true
         btn.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width / 3).isActive = true
+        btn.addTarget(self, action: #selector(goSleepTaped), for: .touchUpInside)
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
     }()
@@ -132,6 +139,7 @@ class SleepSessionsViewController: UIViewController {
         btn.layer.cornerRadius = 10
         btn.heightAnchor.constraint(equalToConstant: 30).isActive = true
         btn.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width / 3).isActive = true
+        btn.addTarget(self, action: #selector(awakeTaped), for: .touchUpInside)
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
     }()
@@ -219,10 +227,18 @@ class SleepSessionsViewController: UIViewController {
         configureNavBar()
         configureCollectionView()
         configureChart()
+        bindSleepViewModel()
     }
     
     // MARK: - Buttons Methods
     
+    @objc private func goSleepTaped() {
+        SleepSessionViewModel.shared.startSleepTimer()
+    }
+    
+    @objc private func awakeTaped() {
+        SleepSessionViewModel.shared.stopTimer()
+    }
     
     // MARK: - Configure UI
     
@@ -293,6 +309,23 @@ class SleepSessionsViewController: UIViewController {
             bedTimeTitleLabel.leadingAnchor.constraint(equalTo: contentStackView.leadingAnchor),
         ])
     }
+    
+    private func bindSleepViewModel() {
+        SleepSessionViewModel.shared.sleepTimerStatus.bind { sleepTime in
+            DispatchQueue.main.async {
+                self.hoursLabel.text = "\(sleepTime.hours)"
+                self.minutsLabel.text = "\(sleepTime.minuts)"
+                self.secondsLabel.text = "\(sleepTime.seconds)"
+            }
+        }
+        
+        SleepSessionViewModel.shared.sleepDuration.bind { duration in
+            DispatchQueue.main.async {
+                self.cellData[0].valueLabelText = duration
+                self.sleepSessionQuolityCollection.reloadData()
+            }
+        }
+    }
 }
 
 // MARK: - CollectionView Delegate & DataSource
@@ -300,12 +333,15 @@ class SleepSessionsViewController: UIViewController {
 extension SleepSessionsViewController : UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        3
+        return cellData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SleepCell", for: indexPath) as! SleepQuolityCollectionViewCell
+        
+        let currentData = cellData[indexPath.row]
+        cell.cellData = currentData
         
         return cell
     }

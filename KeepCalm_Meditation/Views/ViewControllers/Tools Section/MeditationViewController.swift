@@ -42,6 +42,26 @@ class MeditationViewController: UIViewController {
         return img
     }()
     
+    private lazy var hoursLabel : UILabel = {
+        let lb = UILabel()
+        lb.font = .alegreyaSansRegular38()
+        lb.textColor = .white
+        lb.textAlignment = .center
+        lb.text = "00"
+        lb.translatesAutoresizingMaskIntoConstraints = false
+        return lb
+    }()
+    
+    private lazy var hoursSeparatelabel : UILabel = {
+        let lb = UILabel()
+        lb.font = .alegreyaSansRegular38()
+        lb.textColor = .white
+        lb.textAlignment = .center
+        lb.text = ":"
+        lb.translatesAutoresizingMaskIntoConstraints = false
+        return lb
+    }()
+    
     private lazy var minutsLabel : UILabel = {
         let lb = UILabel()
         lb.font = .alegreyaSansRegular38()
@@ -133,21 +153,22 @@ class MeditationViewController: UIViewController {
         configureNavBar()
         addSubviews()
         setupConstraints()
+        bindViewModel()
     }
     
     
     // MARK: - Buttons Methods
     
     @objc func startTimerPressed(_ sender: UIButton) {
-        
+        SleepSessionViewModel.shared.startSleepTimer()
     }
     
     @objc func pauseTimerPressed(_ sender: UIButton) {
-        
+        SleepSessionViewModel.shared.pauseTimer()
     }
     
     @objc func stopButtonPressed(_ sender: UIButton) {
-        
+        SleepSessionViewModel.shared.stopTimer()
     }
     
     // MARK: - Configure UI
@@ -158,6 +179,8 @@ class MeditationViewController: UIViewController {
         contentStack.addArrangedSubview(noticeTitle)
         contentStack.addArrangedSubview(meditationImage)
         contentStack.addArrangedSubview(timeStack)
+        timeStack.addArrangedSubview(hoursLabel)
+        timeStack.addArrangedSubview(hoursSeparatelabel)
         timeStack.addArrangedSubview(minutsLabel)
         timeStack.addArrangedSubview(separateLabel)
         timeStack.addArrangedSubview(secondsLabel)
@@ -175,5 +198,15 @@ class MeditationViewController: UIViewController {
             contentStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -41),
             K.DeviceSizes.currentDeviceHeight <= 568 ? contentStack.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -60) : ((K.DeviceSizes.currentDeviceHeight <= 667) ? contentStack.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -80) : contentStack.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -200)),
         ])
+    }
+    
+    private func bindViewModel() {
+        SleepSessionViewModel.shared.sleepTimerStatus.bind { data in
+            DispatchQueue.main.async {
+                self.hoursLabel.text = "\(data.hours)"
+                self.minutsLabel.text = "\(data.minuts)"
+                self.secondsLabel.text = "\(data.seconds)"
+            }
+        }
     }
 }

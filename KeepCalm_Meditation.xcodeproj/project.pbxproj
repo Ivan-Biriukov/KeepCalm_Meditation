@@ -34,6 +34,10 @@
 		579CE0E62A7AE1120084AAD6 /* BonsaiController in Frameworks */ = {isa = PBXBuildFile; productRef = 579CE0E52A7AE1120084AAD6 /* BonsaiController */; };
 		579CE0E82A7AE13E0084AAD6 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579CE0E72A7AE13E0084AAD6 /* MenuViewController.swift */; };
 		579DBC1E2A8FE26000D5185C /* ChartListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579DBC1D2A8FE26000D5185C /* ChartListViewController.swift */; };
+		57A593B42A93EF630073373B /* SleepSessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A593B32A93EF630073373B /* SleepSessionViewModel.swift */; };
+		57A593B62A93F0550073373B /* SleepTimerDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A593B52A93F0550073373B /* SleepTimerDataModel.swift */; };
+		57AB4A532A9414F900E5E41A /* SleepDurationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AB4A522A9414F900E5E41A /* SleepDurationModel.swift */; };
+		57AB4A552A941A8D00E5E41A /* SleepInfoCollectionViewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AB4A542A941A8D00E5E41A /* SleepInfoCollectionViewDataModel.swift */; };
 		57B605E52A8D50A7007DB781 /* QuotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B605E42A8D50A7007DB781 /* QuotesViewModel.swift */; };
 		57B605E72A8D5710007DB781 /* QuoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B605E62A8D5710007DB781 /* QuoteModel.swift */; };
 		57BA03992A769EC9004C7FC7 /* MoodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BA03982A769EC9004C7FC7 /* MoodCollectionViewCell.swift */; };
@@ -93,6 +97,10 @@
 		579CE0E22A7AD1AD0084AAD6 /* MoodBoosterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodBoosterViewController.swift; sourceTree = "<group>"; };
 		579CE0E72A7AE13E0084AAD6 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		579DBC1D2A8FE26000D5185C /* ChartListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartListViewController.swift; sourceTree = "<group>"; };
+		57A593B32A93EF630073373B /* SleepSessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepSessionViewModel.swift; sourceTree = "<group>"; };
+		57A593B52A93F0550073373B /* SleepTimerDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepTimerDataModel.swift; sourceTree = "<group>"; };
+		57AB4A522A9414F900E5E41A /* SleepDurationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepDurationModel.swift; sourceTree = "<group>"; };
+		57AB4A542A941A8D00E5E41A /* SleepInfoCollectionViewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepInfoCollectionViewDataModel.swift; sourceTree = "<group>"; };
 		57B605E42A8D50A7007DB781 /* QuotesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesViewModel.swift; sourceTree = "<group>"; };
 		57B605E62A8D5710007DB781 /* QuoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteModel.swift; sourceTree = "<group>"; };
 		57BA03982A769EC9004C7FC7 /* MoodCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -232,6 +240,16 @@
 			path = "Sounds Section";
 			sourceTree = "<group>";
 		};
+		57AB4A512A9414D400E5E41A /* SleepVCModels */ = {
+			isa = PBXGroup;
+			children = (
+				57A593B52A93F0550073373B /* SleepTimerDataModel.swift */,
+				57AB4A522A9414F900E5E41A /* SleepDurationModel.swift */,
+				57AB4A542A941A8D00E5E41A /* SleepInfoCollectionViewDataModel.swift */,
+			);
+			path = SleepVCModels;
+			sourceTree = "<group>";
+		};
 		57BA03972A769EA9004C7FC7 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -318,6 +336,7 @@
 				57B605E62A8D5710007DB781 /* QuoteModel.swift */,
 				57CCBD0F2A8EDAE5008B6C45 /* MusicDataModel.swift */,
 				57CCBD112A8EDCDB008B6C45 /* MusicModelManager.swift */,
+				57AB4A512A9414D400E5E41A /* SleepVCModels */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -343,6 +362,7 @@
 				57B605E42A8D50A7007DB781 /* QuotesViewModel.swift */,
 				57CCBD0D2A8EC4FE008B6C45 /* MusicViewModel.swift */,
 				57CCBD152A8EEC53008B6C45 /* PlayerViewModel.swift */,
+				57A593B32A93EF630073373B /* SleepSessionViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -479,6 +499,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57A593B62A93F0550073373B /* SleepTimerDataModel.swift in Sources */,
 				579B274A2A77E8D100E277E1 /* SoundsRootViewController.swift in Sources */,
 				57CCBD162A8EEC53008B6C45 /* PlayerViewModel.swift in Sources */,
 				5799637C2A75516700F10D30 /* SignInViewController.swift in Sources */,
@@ -490,6 +511,7 @@
 				579DBC1E2A8FE26000D5185C /* ChartListViewController.swift in Sources */,
 				57B605E72A8D5710007DB781 /* QuoteModel.swift in Sources */,
 				579B27572A7855A300E277E1 /* ToolsCollectionViewCell.swift in Sources */,
+				57AB4A552A941A8D00E5E41A /* SleepInfoCollectionViewDataModel.swift in Sources */,
 				579CE0E82A7AE13E0084AAD6 /* MenuViewController.swift in Sources */,
 				576939282A73E7E2001AF59A /* OnboardingViewController.swift in Sources */,
 				576939242A73E7E2001AF59A /* AppDelegate.swift in Sources */,
@@ -497,9 +519,11 @@
 				57C27BC02A74777F008C2350 /* UIColor+ Extension.swift in Sources */,
 				57C6DC6D2A79498A0089F96A /* MeditationViewController.swift in Sources */,
 				57B605E52A8D50A7007DB781 /* QuotesViewModel.swift in Sources */,
+				57AB4A532A9414F900E5E41A /* SleepDurationModel.swift in Sources */,
 				579B27502A7800D600E277E1 /* PlayerViewController.swift in Sources */,
 				579B274E2A77F97000E277E1 /* SongsTableViewCell.swift in Sources */,
 				57C27BBE2A7471AA008C2350 /* UIFont+ Extension.swift in Sources */,
+				57A593B42A93EF630073373B /* SleepSessionViewModel.swift in Sources */,
 				579B27552A7851D700E277E1 /* ToolsRootViewController.swift in Sources */,
 				5769392E2A73E7E2001AF59A /* KeepCalm_Meditation.xcdatamodeld in Sources */,
 				579963862A75AA5700F10D30 /* SignUpViewController.swift in Sources */,
