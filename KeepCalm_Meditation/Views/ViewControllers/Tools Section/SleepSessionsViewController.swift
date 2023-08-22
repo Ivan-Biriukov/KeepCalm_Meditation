@@ -325,6 +325,20 @@ class SleepSessionsViewController: UIViewController {
                 self.sleepSessionQuolityCollection.reloadData()
             }
         }
+        
+        SleepSessionViewModel.shared.deepSleepHoursValue.bind { deepSleep in
+            DispatchQueue.main.async {
+                self.cellData[1].valueLabelText = deepSleep
+                self.sleepSessionQuolityCollection.reloadData()
+            }
+        }
+        
+        SleepSessionViewModel.shared.sleepQualityStatus.bind { quality in
+            DispatchQueue.main.async {
+                self.cellData[2].valueLabelText = String(quality)
+                self.sleepSessionQuolityCollection.reloadData()
+            }
+        }
     }
 }
 
