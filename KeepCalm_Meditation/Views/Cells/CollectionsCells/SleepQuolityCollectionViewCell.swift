@@ -1,6 +1,14 @@
 import UIKit
 
 class SleepQuolityCollectionViewCell: UICollectionViewCell {
+    
+    var cellData : SleepInfoCollectionViewDataModel?  {
+        didSet {
+            self.cellIconImage.image = UIImage(systemName: cellData!.imageStringSystemName)
+            self.discLabel.text = cellData?.valueLabelText
+            self.titleLabel.text = cellData?.titleLabelText
+        }
+    }
         
     private lazy var contentStack : UIStackView = {
         let stack = UIStackView()
@@ -12,7 +20,7 @@ class SleepQuolityCollectionViewCell: UICollectionViewCell {
         return stack
     }()
     
-    private let cellIconImage : UIImageView = {
+    let cellIconImage : UIImageView = {
         let img = UIImageView()
         img.heightAnchor.constraint(equalToConstant: 30).isActive = true
         img.widthAnchor.constraint(equalToConstant: 30).isActive = true
@@ -22,7 +30,7 @@ class SleepQuolityCollectionViewCell: UICollectionViewCell {
         return img
     }()
     
-    private lazy var discLabel : UILabel = {
+    lazy var discLabel : UILabel = {
         let lb = UILabel()
         lb.font = .alegreyaSansMedium18()
         lb.textColor = .white
@@ -31,7 +39,7 @@ class SleepQuolityCollectionViewCell: UICollectionViewCell {
         return lb
     }()
     
-    private lazy var titleLabel : UILabel = {
+    lazy var titleLabel : UILabel = {
         let lb = UILabel()
         lb.font = .alegreyaSansRegular12()
         lb.textColor = .white
